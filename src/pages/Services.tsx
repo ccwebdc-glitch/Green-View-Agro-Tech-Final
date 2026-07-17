@@ -1,6 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import ServicesFAQ from "../components/ServicesFAQ";
 import { 
   Droplets, Sun, CloudRain, Shield, CheckCircle2, 
   ArrowRight, Calculator, FileText, Check, Phone, HelpCircle, Briefcase, Play,
@@ -1538,6 +1539,9 @@ export default function Services() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* Interactive FAQ Bank Section */}
+      <ServicesFAQ />
     </div>
   );
 }
