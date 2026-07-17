@@ -1,0 +1,10 @@
+{
+  "name": "Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Remix: Copy of Remix: Remix: Remix: Remix: Green View Agro Tech",
+  "description": "Leading sustainable agriculture and water resource management company specializing in modern farming technologies, irrigation systems, and greenhouse solutions.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
