@@ -1326,185 +1326,6 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* 7. How It Works (7 Steps Process) (PDF 2 Page 5) */}
-
-                {/* Our Process  */}
-                <div className="bg-[#fcfdfc] rounded-3.5xl p-6 sm:p-10 border border-green-100">
-                  <h3 className="text-2.5xl font-bold text-gray-950 text-center mb-12 uppercase tracking-wide">
-                    Our Simple 7-Step Solar Installation Process
-                  </h3>
-                  
-                  {/* Row 1 (Steps 1 to 4) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {[
-                      { 
-                        step: "1", 
-                        title: "Contact Us", 
-                        bullets: [
-                          "Get in touch with our team via call, WhatsApp or email.",
-                          "We are happy to assist you!"
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/2_peo3ij.jpg" 
-                      },
-                      { 
-                        step: "2", 
-                        title: "Free Site Visit & Consultation", 
-                        bullets: [
-                          "Our expert will visit your site for free.",
-                          "We assess your roof, discuss your needs & suggest the best solution."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/3_ax001g.jpg" 
-                      },
-                      { 
-                        step: "3", 
-                        title: "Document Verification", 
-                        bullets: [
-                          "We verify all necessary documents for eligibility.",
-                          "Our team ensures a smooth and hassle-free process."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/4_xaouxb.jpg" 
-                      },
-                      { 
-                        step: "4", 
-                        title: "Registration", 
-                        bullets: [
-                          "We register your application on the official PM Surya Ghar Portal.",
-                          "You will receive application acknowledgement."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/5_at4fhm.jpg" 
-                      }
-                    ].map((step, idx) => (
-                      <div 
-                        key={idx} 
-                        className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
-                      >
-                        <div>
-                          {/* Card Header */}
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
-                              {step.step}
-                            </div>
-                            <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
-                              {step.title}
-                            </h4>
-                          </div>
-
-                          {/* Image Box */}
-                          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
-                            <img 
-                              src={step.img} 
-                              alt={step.title} 
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                              referrerPolicy="no-referrer"
-                            />
-                          </div>
-
-                          {/* Bullet Points */}
-                          <ul className="space-y-2 mt-4">
-                            {step.bullets.map((bullet, bIdx) => (
-                              <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
-                                <span className="font-medium text-gray-700">{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Arrow connector */}
-                        {idx < 3 && (
-                          <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Row 2 (Steps 5 to 7) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 lg:max-w-6xl lg:mx-auto">
-                    {[
-                      { 
-                        step: "5", 
-                        title: "Solar System Installation", 
-                        bullets: [
-                          "Our skilled team installs high-quality solar system at your premises.",
-                          "System testing & commissioning is completed before activation."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/6_bkoopx.jpg" 
-                      },
-                      { 
-                        step: "6", 
-                        title: "Net Metering Process", 
-                        bullets: [
-                          "We apply for net meter with your electricity distribution company (DISCOM).",
-                          "After approval, the net meter is installed & your system is connected to the grid."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/7_zt1mmq.jpg" 
-                      },
-                      { 
-                        step: "7", 
-                        title: "Subsidy Processing", 
-                        bullets: [
-                          "Your subsidy is approved by the government as per eligibility.",
-                          "Subsidy amount is transferred directly to your bank account."
-                        ],
-                        img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289651/8_bxfkks.jpg" 
-                      }
-                    ].map((step, idx) => (
-                      <div 
-                        key={idx} 
-                        className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
-                      >
-                        <div>
-                          {/* Card Header */}
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
-                              {step.step}
-                            </div>
-                            <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
-                              {step.title}
-                            </h4>
-                          </div>
-
-                          {/* Image Box */}
-                          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
-                            <img 
-                              src={step.img} 
-                              alt={step.title} 
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                              referrerPolicy="no-referrer"
-                            />
-                          </div>
-
-                          {/* Bullet Points */}
-                          <ul className="space-y-2 mt-4">
-                            {step.bullets.map((bullet, bIdx) => (
-                              <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
-                                <span className="font-medium text-gray-700">{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Arrow connector */}
-                        {idx < 2 && (
-                          <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                          </div>
-                        )}
-
-                        {/* Connection arrow on left of Step 5 from previous row */}
-                        {idx === 0 && (
-                          <div className="hidden lg:flex absolute top-1/2 -left-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                            <Play className="w-3.5 h-3.5 fill-current" />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* 8. Why Green View Section (PDF 2 Page 6) */}
                 <div className="pt-16 pb-8 space-y-12">
                   <div className="space-y-4">
@@ -1789,25 +1610,6 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* 🔷 Our 7 steps solar subsidy & application process */}
-                <div className="bg-[#F7F9F7] rounded-[32px] border border-[#D8E6D5] py-16 px-6 sm:px-10 w-full max-w-[1160px] mx-auto my-12">
-                  <div className="text-center max-w-4xl mx-auto mb-10 space-y-4">
-                    <h3 className="text-3xl sm:text-[44px] font-bold text-[#184B2A] leading-tight uppercase">
-                      OUR 7 STEP SOLAR SUBSIDY & APPLICATION PROCESS
-                    </h3>
-                    <p className="text-[#444444] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-                      Follow our complete workflow from consultation and site visit to hassle-free registration and subsidy credit.
-                    </p>
-                  </div>
-                  <div className="max-w-6xl mx-auto rounded-[24px] overflow-hidden border border-[#D8E6D5] bg-white p-4 sm:p-6 shadow-[0_10px_30px_rgba(31,109,42,0.05)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(31,109,42,0.12)]">
-                    <img 
-                      src="/solar_subsidy_process.jpg" 
-                      alt="Our 7 Step Solar Subsidy & Application Process" 
-                      className="w-full h-auto rounded-[16px] shadow-sm select-none"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                </div>
               </motion.div>
             )}
 
@@ -2428,6 +2230,187 @@ export default function Services() {
             )}
 
           </AnimatePresence>
+        </div>
+      </section>
+
+      {/* 7. How It Works (7 Steps Process) (PDF 2 Page 5) - Relocated before FAQ */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#fcfdfc] rounded-3.5xl p-6 sm:p-10 border border-green-100">
+            <h3 className="text-2.5xl font-bold text-gray-950 text-center mb-12 uppercase tracking-wide">
+              Our Simple 7-Step Solar Installation Process
+            </h3>
+            
+            {/* Row 1 (Steps 1 to 4) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { 
+                  step: "1", 
+                  title: "Contact Us", 
+                  bullets: [
+                    "Get in touch with our team via call, WhatsApp or email.",
+                    "We are happy to assist you!"
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/2_peo3ij.jpg" 
+                },
+                { 
+                  step: "2", 
+                  title: "Free Site Visit & Consultation", 
+                  bullets: [
+                    "Our expert will visit your site for free.",
+                    "We assess your roof, discuss your needs & suggest the best solution."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/3_ax001g.jpg" 
+                },
+                { 
+                  step: "3", 
+                  title: "Document Verification", 
+                  bullets: [
+                    "We verify all necessary documents for eligibility.",
+                    "Our team ensures a smooth and hassle-free process."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/4_xaouxb.jpg" 
+                },
+                { 
+                  step: "4", 
+                  title: "Registration", 
+                  bullets: [
+                    "We register your application on the official PM Surya Ghar Portal.",
+                    "You will receive application acknowledgement."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/5_at4fhm.jpg" 
+                }
+              ].map((step, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
+                >
+                  <div>
+                    {/* Card Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                        {step.step}
+                      </div>
+                      <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
+                        {step.title}
+                      </h4>
+                    </div>
+
+                    {/* Image Box */}
+                    <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
+                      <img 
+                        src={step.img} 
+                        alt={step.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+
+                    {/* Bullet Points */}
+                    <ul className="space-y-2 mt-4">
+                      {step.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                          <span className="font-medium text-gray-700">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Arrow connector */}
+                  {idx < 3 && (
+                    <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2 (Steps 5 to 7) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 lg:max-w-6xl lg:mx-auto">
+              {[
+                { 
+                  step: "5", 
+                  title: "Solar System Installation", 
+                  bullets: [
+                    "Our skilled team installs high-quality solar system at your premises.",
+                    "System testing & commissioning is completed before activation."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/6_bkoopx.jpg" 
+                },
+                { 
+                  step: "6", 
+                  title: "Net Metering Process", 
+                  bullets: [
+                    "We apply for net meter with your electricity distribution company (DISCOM).",
+                    "After approval, the net meter is installed & your system is connected to the grid."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/7_zt1mmq.jpg" 
+                },
+                { 
+                  step: "7", 
+                  title: "Subsidy Processing", 
+                  bullets: [
+                    "Your subsidy is approved by the government as per eligibility.",
+                    "Subsidy amount is transferred directly to your bank account."
+                  ],
+                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289651/8_bxfkks.jpg" 
+                }
+              ].map((step, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
+                >
+                  <div>
+                    {/* Card Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                        {step.step}
+                      </div>
+                      <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
+                        {step.title}
+                      </h4>
+                    </div>
+
+                    {/* Image Box */}
+                    <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
+                      <img 
+                        src={step.img} 
+                        alt={step.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+
+                    {/* Bullet Points */}
+                    <ul className="space-y-2 mt-4">
+                      {step.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                          <span className="font-medium text-gray-700">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Arrow connector */}
+                  {idx < 2 && (
+                    <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                    </div>
+                  )}
+
+                  {/* Connection arrow on left of Step 5 from previous row */}
+                  {idx === 0 && (
+                    <div className="hidden lg:flex absolute top-1/2 -left-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
