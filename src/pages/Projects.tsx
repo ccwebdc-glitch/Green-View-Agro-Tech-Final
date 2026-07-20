@@ -321,6 +321,12 @@ export default function Projects() {
                         {project.category}
                       </span>
                     </div>
+                    {project.id === 1 && (
+                      <div className="absolute bottom-4 left-4 right-4 bg-emerald-950/85 backdrop-blur-md text-emerald-50 px-3 py-2 rounded-xl text-[10px] sm:text-xs flex items-center gap-2 border border-emerald-500/20 shadow-md">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span className="font-extrabold tracking-wide uppercase line-clamp-1">{project.location}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Body: Info Section */}

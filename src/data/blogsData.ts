@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "While you're scrolling past your electricity bill app hoping the number changed, 17 lakh Indian households have already made it disappear.",
     date: "June 12, 2026",
     author: "Green View Solar Expert",
-    img: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532831/blog1_hklwsm.png",
     readTime: "5 min read",
     content: `### 17 Lakh Indian Homes Now Pay ₹0 Electricity Bill — Here's the Exact Math
 
@@ -56,7 +56,7 @@ We size every system to your actual electricity consumption, not just the minimu
     excerpt: "If you live in Kolkata, your electricity bill is calculated completely differently than your cousin's in Durgapur — and most people in West Bengal don't realize this affects solar payback.",
     date: "June 08, 2026",
     author: "S. Mukherjee, Energy Analyst",
-    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532831/blog2_qcinc9.png",
     readTime: "4 min read",
     content: `### WBSEDCL vs CESC: ₹78,000 Subsidy Math for West Bengal's Two Power Zones
 
@@ -95,7 +95,7 @@ We're registered vendors for both WBSEDCL and CESC areas, so wherever you are in
     excerpt: "Nearly half of subsidy rejections have nothing to do with eligibility. They happen because of simple avoidable administrative errors.",
     date: "June 05, 2026",
     author: "P. Roy, Subsidy Consultant",
-    img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532831/blog_3_uzqw7p.png",
     readTime: "6 min read",
     content: `### 6 Reasons PM Surya Ghar Applications Get Rejected (And How to Avoid Every One)
 
@@ -133,7 +133,7 @@ Documentation accuracy is the single biggest thing standing between most applica
     excerpt: "At the scheme's two-year mark, major updates have streamlined registration, tracking, and approvals. Learn what has changed.",
     date: "June 02, 2026",
     author: "Solar Trends India",
-    img: "https://images.unsplash.com/photo-1542332213-9b5a5a3fab31?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532831/blog4_xaacf9.png",
     readTime: "5 min read",
     content: `### PM Surya Ghar Hit 40 Lakh Homes in 2 Years — What That Means for You in 2026
 
@@ -170,7 +170,7 @@ Whether you looked into this scheme in 2024 and got discouraged, or you're heari
     excerpt: "Your solar panels can generate electricity flawlessly for years — and still disqualify your subsidy claim entirely because of ALMM rules.",
     date: "May 29, 2026",
     author: "Tech & Quality Desk",
-    img: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532831/blog5_enctbk.png",
     readTime: "4 min read",
     content: `### ALMM Explained: The Panel Rule That Can Silently Kill Your Subsidy
 
@@ -202,7 +202,7 @@ Every panel we install is verified ALMM-compliant before it ever reaches your ro
     excerpt: "You install solar, claim your ₹78,000, enjoy low bills — then sell the house. Does the new owner inherit your subsidy status?",
     date: "May 25, 2026",
     author: "Real Estate & Solar Team",
-    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532832/blog6_2_kkcv0d.png",
     readTime: "4 min read",
     content: `### If You Sell Your House, Does the Solar Subsidy Transfer? (The Answer Surprises People)
 
@@ -235,7 +235,7 @@ Whether you're installing for the long term or thinking ahead to a future sale, 
     excerpt: "Every West Bengal household with frequent power cuts faces three choices. Let's compare their actual 10-year cost profiles.",
     date: "May 22, 2026",
     author: "Energy Cost Audit Desk",
-    img: "https://images.unsplash.com/photo-1595246140876-597b629d7ca7?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog7_kekvhq.png",
     readTime: "5 min read",
     content: `### PM Surya Ghar vs Diesel Inverter vs Just Paying the Bill: The Honest 10-Year Comparison
 
@@ -282,7 +282,7 @@ We'll run these exact numbers against your actual electricity bill during a free
     excerpt: "Your panels are installed and inspection passed, but bank account shows nothing? Here's the step-by-step escalation protocol.",
     date: "May 18, 2026",
     author: "P. Roy, Process Auditor",
-    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog8_2_ye8mvw.png",
     readTime: "5 min read",
     content: `### Your Subsidy Hasn't Arrived in 90 Days? Here's the Exact Escalation Ladder
 
@@ -321,7 +321,7 @@ We don't disappear after installation — we actively track your application thr
     excerpt: "Choosing a solar system size by gut feeling leads to under-investing or over-investing. Let's look at real family consumption metrics.",
     date: "May 15, 2026",
     author: "Energy Audit Team",
-    img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog9_upyuho.png ",
     readTime: "5 min read",
     content: `### 1 kW vs 2 kW vs 3 kW: A Real West Bengal Family's Decision Breakdown
 
@@ -364,7 +364,7 @@ We calculate your exact right-sized system using your actual electricity bill hi
     excerpt: "Most people assume the ₹78,000 subsidy is the whole story. The digital financing option JanSamarth changes the math completely.",
     date: "May 11, 2026",
     author: "S. Mukherjee, Fin-Tech Advisor",
-    img: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784542034/blog_10_mzkime.png",
     readTime: "4 min read",
     content: `### The JanSamarth Loan Nobody Talks About: 7% Solar Loans Explained Simply
 
@@ -401,7 +401,7 @@ We guide every customer through the JanSamarth application at no extra charge �
     excerpt: "Solar won't work in Bengal's rainy monsoons? Learn why this common objection is based on a misunderstanding of photovoltaic science.",
     date: "May 08, 2026",
     author: "Science & Climate Team",
-    img: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog11_sfzpni.png",
     readTime: "4 min read",
     content: `### Monsoon Myth-Busting: Does Rooftop Solar Actually Work in Bengal's Climate?
 
@@ -433,7 +433,7 @@ We assess your specific rooftop — shading, orientation, and obstruction — du
     excerpt: "Confused by net metering? Here is a simple bank-account explanation with concrete units and credit calculations.",
     date: "May 05, 2026",
     author: "Primary Education Team",
-    img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog_12_lfy4j1.png",
     readTime: "4 min read",
     content: `### Net Metering Explained Like You're 12 Years Old (With a Real Bill Example)
 
@@ -471,7 +471,7 @@ We handle your complete net meter application and DISCOM coordination as part of
     excerpt: "Two farmers, identical land, identical crops. One uses 40% less water and gets a bigger harvest. Discover the water-use efficiency calculations.",
     date: "April 29, 2026",
     author: "Agronomist Team",
-    img: "https://images.unsplash.com/photo-1463121859909-07406e25930e?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532833/blog_13_frqsmm.png",
     readTime: "5 min read",
     content: `### The 90% vs 50% Water Math: Why Drip Irrigation Wins Every Single Time
 
@@ -508,7 +508,7 @@ We design your drip system around your specific crop, soil type, and water sourc
     excerpt: "Nobody frames flood irrigation as expensive because the cost is invisible. Discover the hidden cost multipliers that drain profits.",
     date: "April 24, 2026",
     author: "S. Roy, Agronomist",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784542194/14_furr6d.png",
     readTime: "5 min read",
     content: `### Flood Irrigation Is Quietly Bankrupting Bengal Farmers — Here's the Proof
 
@@ -541,7 +541,7 @@ We'll walk your specific field and show you exactly where flood irrigation is co
     excerpt: "Most farmers evaluate drip irrigation by looking only at the installation sticker price. Let's look at the risk-mitigation math.",
     date: "April 20, 2026",
     author: "Agri-Finance Analyst",
-    img: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784532834/blog15_zh6mid.png",
     readTime: "4 min read",
     content: `### ₹60,000/Acre or ₹6 Lakh Crop Loss? The Subsidy Math Farmers Skip
 
@@ -579,7 +579,7 @@ We help you check your exact subsidy eligibility under current central and West 
     excerpt: "If you're still running a diesel pump for irrigation, you are paying a heavy monthly tax on your farm that solar completely eliminates.",
     date: "April 15, 2026",
     author: "KUSUM Program Expert",
-    img: "https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784541620/16_fnnbdc.png",
     readTime: "5 min read",
     content: `### Diesel Pump Owners Are Losing ₹8,000/Month and Don't Realize It
 
@@ -609,7 +609,7 @@ We'll calculate your exact current diesel spend and show you the real payback ti
     excerpt: "Choosing the wrong pump type for your water source leads to complete system failure. Learn the absolute 15-meter engineering rule.",
     date: "April 11, 2026",
     author: "Agri-Hydraulics Desk",
-    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784541620/17_rnscti.png",
     readTime: "4 min read",
     content: `### Surface vs Submersible Solar Pump: The 15-Meter Rule That Decides Everything
 
@@ -647,7 +647,7 @@ We assess your actual water source options — surface and groundwater both — 
     excerpt: "Learn how procedural blockages and lack of district awareness leave surface-water canal farmers underserved by government solar programs.",
     date: "April 08, 2026",
     author: "Rural Policy Group",
-    img: "https://images.unsplash.com/photo-1594489428504-5c0c480a15fd?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784541620/18_yf8rso.png",
     readTime: "4 min read",
     content: `### PM-KUSUM's Hidden Problem: Why Canal Farmers Are Being Left Behind
 
@@ -676,7 +676,7 @@ We assess your actual water source options — surface and groundwater both — 
     excerpt: "A standard ventilated polyhouse costs ₹32-38 Lakh per acre. Discover the yield multipliers and detailed ROI numbers that make it highly profitable.",
     date: "April 02, 2026",
     author: "Horticulture Consultant",
-    img: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784541620/19_wzohx3.png",
     readTime: "5 min read",
     content: `### 3-5x More Yield, Same Land: The Polyhouse Math Nobody Explains Properly
 
@@ -707,7 +707,7 @@ We build the complete structure — and help you navigate the subsidy applicatio
     excerpt: "Close to half of all polyhouse subsidy applications get rejected due to a single avoidable timing mistake. Make sure you don't make it.",
     date: "March 29, 2026",
     author: "Subsidy Approval Officer",
-    img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=600",
+    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784541620/20_rfwrci.png",
     readTime: "5 min read",
     content: `### The #1 Mistake That Kills Polyhouse Subsidy Approval (Farmers Do This Constantly)
 
