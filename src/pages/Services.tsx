@@ -2,13 +2,15 @@ import { useState, useEffect, FormEvent } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import ServicesFAQ from "../components/ServicesFAQ";
+// @ts-expect-error - Vite handles static image imports
+import step10YieldSavings from "../assets/images/step10_yield_savings_1784553946774.jpg";
 import { 
   Droplets, Sun, CloudRain, Shield, CheckCircle2, 
   ArrowRight, Calculator, FileText, Check, Phone, HelpCircle, Briefcase, Play,
   FileCheck, ShieldAlert, Landmark, Sparkles, ChevronRight, AlertTriangle,
   Home, Laptop, CheckSquare, Wrench, Zap, Coins,
   MessageSquare, Mail, Users, ClipboardList, MapPin, Sprout, TrendingUp, ShieldCheck, 
-  Layers, GraduationCap, Settings2, Handshake, Headset
+  Layers, GraduationCap, Settings2, Handshake, Headset, Globe, CheckCircle
 } from "lucide-react";
 
 const containerVariants = {
@@ -43,34 +45,13 @@ const irrigationSteps = [
       "Our team is ready to assist you."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Main phone body */}
-        <div className="w-16 h-28 bg-white rounded-2xl border border-gray-200 shadow-md relative flex flex-col justify-between p-2 transform group-hover:scale-105 transition-all duration-300">
-          {/* Speaker & camera slot */}
-          <div className="w-8 h-1.5 bg-gray-200 rounded-full mx-auto mb-1.5" />
-          
-          {/* Screen mock blocks */}
-          <div className="flex-1 space-y-2 bg-gray-50 rounded-lg p-1">
-            <div className="w-full h-3 bg-green-100 rounded" />
-            <div className="w-2/3 h-2 bg-gray-200 rounded" />
-            <div className="w-5/6 h-2 bg-gray-200 rounded" />
-            <div className="w-1/2 h-2 bg-gray-200 rounded" />
-          </div>
-          
-          {/* Home indicator */}
-          <div className="w-6 h-1 bg-gray-300 rounded-full mx-auto mt-1.5" />
-        </div>
-
-        {/* Floaters */}
-        <div className="absolute top-4 left-6 bg-green-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <Phone className="w-4 h-4" />
-        </div>
-        <div className="absolute top-1/2 -right-1 bg-[#25D366] text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <MessageSquare className="w-4 h-4" />
-        </div>
-        <div className="absolute bottom-2 left-6 bg-blue-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <Mail className="w-4 h-4" />
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/1_cny74s.jpg" 
+          alt="Contact Us" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -82,36 +63,13 @@ const irrigationSteps = [
       "Understand your farming requirements and cultivation goals."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Field layout grid */}
-        <div className="w-28 h-20 bg-emerald-50 border border-emerald-200/50 rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          {/* Grid Lines */}
-          <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-0.5 opacity-20">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div key={i} className="border border-emerald-800" />
-            ))}
-          </div>
-          {/* Sprout and location indicators */}
-          <div className="z-10 flex justify-between">
-            <Sprout className="w-4 h-4 text-emerald-600" />
-            <Sprout className="w-4 h-4 text-emerald-600" />
-          </div>
-          <div className="z-10 flex justify-around">
-            <Sprout className="w-4 h-4 text-emerald-600" />
-          </div>
-        </div>
-        
-        {/* Experts and details */}
-        <div className="absolute top-2 right-4 bg-white border border-gray-150 p-1.5 rounded-lg shadow-md flex items-center gap-1">
-          <Users className="w-3.5 h-3.5 text-green-700" />
-          <span className="text-[8px] font-bold text-gray-500 uppercase font-poppins">Field Visit</span>
-        </div>
-        <div className="absolute bottom-2 left-4 bg-amber-50 border border-amber-200 p-1.5 rounded-lg shadow-md flex items-center gap-1">
-          <ClipboardList className="w-3.5 h-3.5 text-amber-700" />
-          <span className="text-[8px] font-bold text-gray-500">Notebook</span>
-        </div>
-        
-        <MapPin className="w-7 h-7 text-rose-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-md animate-bounce" />
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/2_pihaea.jpg" 
+          alt="We Visit Your Field" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -123,33 +81,13 @@ const irrigationSteps = [
       "Recommend the most suitable irrigation system for higher yield and maximum water savings."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px] p-2">
-        {/* Analysis Dashboard Layout */}
-        <div className="w-full max-w-[140px] bg-white rounded-xl border border-gray-150 shadow-sm p-1.5 flex flex-col gap-1.5 transform group-hover:scale-105 transition-all duration-300">
-          {/* 4 Systems Grid */}
-          <div className="grid grid-cols-2 gap-1 flex-1">
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center text-center">
-              <Droplets className="w-3.5 h-3.5 text-blue-500 mb-0.5" />
-              <span className="text-[7px] font-black leading-none text-[#1F2937] font-poppins">Drip</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center text-center">
-              <CloudRain className="w-3.5 h-3.5 text-[#1B5E20] mb-0.5" />
-              <span className="text-[7px] font-black leading-none text-[#1F2937] font-poppins">Sprinkler</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center text-center">
-              <Sun className="w-3.5 h-3.5 text-amber-500 mb-0.5" />
-              <span className="text-[7px] font-black leading-none text-[#1F2937] font-poppins">Micro</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center text-center">
-              <Zap className="w-3.5 h-3.5 text-emerald-600 mb-0.5" />
-              <span className="text-[7px] font-black leading-none text-[#1F2937] font-poppins">Rain Gun</span>
-            </div>
-          </div>
-          {/* Analyze Bar */}
-          <div className="h-1.5 w-full bg-gray-150 rounded overflow-hidden">
-            <div className="h-full w-2/3 bg-emerald-600 animate-[pulse_1.5s_infinite]" />
-          </div>
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/3_u1q2dw.jpg" 
+          alt="Crop Analysis & System Recommendation" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -161,33 +99,13 @@ const irrigationSteps = [
       "Provide material estimation and transparent quotation."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Blueprint Layout representation */}
-        <div className="w-24 h-20 bg-slate-900 rounded-lg border border-slate-700 relative overflow-hidden p-2 flex flex-col justify-between shadow-md transform group-hover:scale-105 transition-all duration-300">
-          {/* Blueprint Grid & lines */}
-          <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-0.5 opacity-30">
-            {Array.from({ length: 16 }).map((_, i) => (
-              <div key={i} className="border border-blue-400" />
-            ))}
-          </div>
-          
-          {/* Interactive layout shapes */}
-          <div className="z-10 w-full h-1 bg-cyan-400/80 rounded" />
-          <div className="z-10 w-full flex justify-between">
-            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-          </div>
-          <div className="z-10 flex justify-between items-center text-[8px] font-mono text-cyan-300 font-bold">
-            <span>Layout.dwg</span>
-            <Calculator className="w-3 h-3 text-emerald-400" />
-          </div>
-        </div>
-        
-        {/* Estimate Card */}
-        <div className="absolute top-2 right-4 bg-amber-500 text-white font-black text-[8px] px-1.5 py-0.5 rounded shadow-md animate-pulse">
-          Quotation ₹
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/4_ihugmz.jpg" 
+          alt="Design & Estimation" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -199,30 +117,13 @@ const irrigationSteps = [
       "Ensure durable and efficient materials for long-term performance."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Material row */}
-        <div className="flex gap-2 items-center justify-center transform group-hover:scale-105 transition-all duration-300">
-          {/* Premium Filter */}
-          <div className="w-8 h-14 bg-slate-800 rounded-lg relative flex flex-col justify-between items-center py-1.5 shadow border border-slate-700">
-            <div className="w-10 h-2 bg-emerald-600 rounded-full" />
-            <span className="text-[6px] text-white font-mono leading-none">FILTER</span>
-            <div className="w-6 h-1.5 bg-slate-600 rounded" />
-          </div>
-          {/* Pressure Valve */}
-          <div className="w-8 h-8 bg-slate-100 rounded-full border border-slate-300 relative flex items-center justify-center shadow-sm">
-            <Settings2 className="w-4 h-4 text-[#1B5E20]" />
-            <div className="absolute -top-1 w-2 h-2 bg-red-500 rounded-full" />
-          </div>
-          {/* Piping Layer */}
-          <div className="w-10 h-10 bg-slate-100 rounded border border-slate-300 flex flex-col items-center justify-center p-1 shadow-sm">
-            <Layers className="w-4 h-4 text-blue-500" />
-            <span className="text-[6px] font-black text-gray-500">PIPES</span>
-          </div>
-        </div>
-        {/* Premium Checkmark */}
-        <div className="absolute bottom-2 right-5 bg-green-600 text-white rounded-full p-1 shadow-md">
-          <ShieldCheck className="w-3.5 h-3.5" />
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/5_pqkqzc.jpg" 
+          alt="System Planning & Material Selection" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -234,29 +135,13 @@ const irrigationSteps = [
       "Proper laying of mainline, sub-main, laterals, emitters and accessories."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Tech pipe layout */}
-        <div className="w-28 h-20 bg-white border border-[#DDEFD9] rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-center">
-            <span className="text-[8px] font-black text-emerald-800 uppercase font-poppins">Field Install</span>
-            <Wrench className="w-3.5 h-3.5 text-amber-600" />
-          </div>
-          
-          {/* Interactive pipeline */}
-          <div className="relative w-full h-4 bg-slate-50 rounded flex items-center px-1">
-            <div className="h-1 bg-blue-500 w-full relative flex justify-around">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full -top-0.5 absolute left-1/4 flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full" /></div>
-              <div className="w-2 h-2 bg-emerald-500 rounded-full -top-0.5 absolute left-2/4 flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full" /></div>
-              <div className="w-2 h-2 bg-emerald-500 rounded-full -top-0.5 absolute left-3/4 flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full" /></div>
-            </div>
-          </div>
-          
-          <div className="flex justify-between">
-            <Sprout className="w-3 h-3 text-emerald-600" />
-            <Sprout className="w-3 h-3 text-emerald-600" />
-            <Sprout className="w-3 h-3 text-emerald-600" />
-          </div>
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553128/6_uuv7yv.jpg" 
+          alt="Installation" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -268,24 +153,13 @@ const irrigationSteps = [
       "Demonstrate complete system operation and usage."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Pressure meter gauge */}
-        <div className="w-20 h-20 rounded-full border-4 border-emerald-600 bg-white flex flex-col items-center justify-center relative shadow-md transform group-hover:scale-105 transition-all duration-300">
-          {/* Gauge Needle */}
-          <div className="w-1 h-8 bg-amber-500 absolute top-2 origin-bottom transform rotate-45 rounded-full" />
-          <div className="w-3 h-3 bg-slate-800 rounded-full z-10" />
-          
-          <span className="text-[7px] font-black text-gray-400 uppercase tracking-tighter mt-1 z-10 font-poppins">PRESSURE</span>
-          <span className="text-[9px] font-black text-emerald-700 z-10 font-poppins">4.5 BAR</span>
-        </div>
-        
-        {/* Water Splash */}
-        <div className="absolute top-3 left-4 bg-blue-400 text-white p-1 rounded-full animate-ping">
-          <Droplets className="w-3 h-3" />
-        </div>
-        <div className="absolute bottom-3 right-6 bg-green-500 text-white p-1 rounded-full shadow">
-          <CheckCircle2 className="w-4 h-4" />
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553129/7_fz6ski.jpg" 
+          alt="Testing & Demonstration" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -297,21 +171,13 @@ const irrigationSteps = [
       "Guidance for irrigation scheduling, maintenance and fertigation."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Presentation stand */}
-        <div className="w-24 h-16 bg-[#13541b] border-2 border-amber-900 rounded-lg p-1.5 relative shadow-md flex flex-col justify-center items-center text-center transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex items-center gap-1">
-            <GraduationCap className="w-5 h-5 text-amber-400" />
-            <span className="text-[8px] font-black text-white uppercase font-poppins">Guide Book</span>
-          </div>
-          <p className="text-[6px] text-emerald-100 font-bold leading-tight mt-1 font-poppins">FERTIGATION & TIMER SCHEDULE</p>
-        </div>
-        
-        {/* Floating Sprout & User badge */}
-        <div className="absolute bottom-2 right-4 bg-white border border-gray-150 rounded-lg px-1.5 py-1 flex items-center gap-1 shadow-md">
-          <Users className="w-3.5 h-3.5 text-green-700" />
-          <span className="text-[8px] font-bold text-gray-500 font-poppins">Farmers</span>
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553129/8_jlpu8k.jpg" 
+          alt="Training & Guidance" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -323,23 +189,13 @@ const irrigationSteps = [
       "Quick response for maintenance and service needs."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Shield representing support */}
-        <div className="w-16 h-18 bg-white border border-emerald-100 rounded-2xl flex flex-col items-center justify-center shadow-lg relative transform group-hover:scale-105 transition-all duration-300">
-          <div className="w-10 h-10 bg-[#E8F5E9] rounded-full flex items-center justify-center">
-            <ShieldCheck className="w-7 h-7 text-[#1B5E20]" />
-          </div>
-        </div>
-        
-        {/* Glow and checked elements */}
-        <div className="absolute top-6 left-6 bg-[#1B5E20] text-white font-extrabold text-[8px] px-2 py-0.5 rounded-full shadow font-poppins">
-          24/7 SUPPORT
-        </div>
-        
-        {/* Floating phone call symbol */}
-        <div className="absolute bottom-3 right-6 bg-amber-500 text-white p-1.5 rounded-full shadow-md">
-          <Phone className="w-3.5 h-3.5" />
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src="https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553128/9_zhkt0b.jpg" 
+          alt="After Sales Support" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   },
@@ -351,30 +207,13 @@ const irrigationSteps = [
       "Save water, reduce energy costs and increase profitability."
     ],
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Graph & Sprout layout */}
-        <div className="w-28 h-20 bg-white border border-emerald-100 rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-center">
-            <Sprout className="w-5 h-5 text-emerald-600" />
-            <div className="flex items-center gap-0.5 bg-green-100 px-1 rounded">
-              <TrendingUp className="w-3 h-3 text-[#1B5E20]" />
-              <span className="text-[8px] font-black text-[#1B5E20] font-poppins">+45% Yield</span>
-            </div>
-          </div>
-          
-          {/* Rising chart mockup */}
-          <div className="w-full h-4 relative flex items-end gap-1">
-            <div className="w-3 h-2 bg-[#E8F5E9] rounded-t" />
-            <div className="w-3 h-3 bg-[#E8F5E9] rounded-t" />
-            <div className="w-3 h-4 bg-[#E8F5E9] rounded-t" />
-            <div className="w-3 h-5 bg-[#1B5E20] rounded-t" />
-          </div>
-        </div>
-        
-        {/* Floating coins */}
-        <div className="absolute bottom-2 left-3 bg-amber-500 text-white p-1 rounded-full shadow-md">
-          <Coins className="w-3.5 h-3.5" />
-        </div>
+      <div className="relative w-full h-full bg-white flex items-center justify-center rounded-t-[19px]">
+        <img 
+          src={step10YieldSavings} 
+          alt="Better Yield, More Savings" 
+          className="w-full h-full object-cover rounded-t-[19px]"
+          referrerPolicy="no-referrer"
+        />
       </div>
     )
   }
@@ -386,323 +225,90 @@ const solarSteps = [
     title: "CONTACT US",
     bullets: [
       "Reach out to us via call, WhatsApp or email.",
-      "Our team is ready to assist you."
+      "Our team is ready to assist you!"
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Main phone body */}
-        <div className="w-16 h-28 bg-white rounded-2xl border border-gray-200 shadow-md relative flex flex-col justify-between p-2 transform group-hover:scale-105 transition-all duration-300">
-          {/* Speaker & camera slot */}
-          <div className="w-8 h-1.5 bg-gray-200 rounded-full mx-auto mb-1.5" />
-          
-          {/* Screen mock blocks */}
-          <div className="flex-1 space-y-2 bg-gray-50 rounded-lg p-1">
-            <div className="w-full h-3 bg-green-100 rounded" />
-            <div className="w-2/3 h-2 bg-gray-200 rounded" />
-            <div className="w-5/6 h-2 bg-gray-200 rounded" />
-            <div className="w-1/2 h-2 bg-gray-200 rounded" />
-          </div>
-          
-          {/* Home indicator */}
-          <div className="w-6 h-1 bg-gray-300 rounded-full mx-auto mt-1.5" />
-        </div>
-
-        {/* Floaters */}
-        <div className="absolute top-4 left-6 bg-green-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <Phone className="w-4 h-4" />
-        </div>
-        <div className="absolute top-1/2 -right-1 bg-[#25D366] text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <MessageSquare className="w-4 h-4" />
-        </div>
-        <div className="absolute bottom-2 left-6 bg-blue-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform animate-bounce">
-          <Mail className="w-4 h-4" />
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/1_cny74s.jpg"
   },
   {
     step: 2,
     title: "FREE SITE VISIT & ASSESSMENT",
     bullets: [
-      "We visit your site and study water source, depth, land and energy requirements.",
-      "Understand your needs and recommend the best solution."
+      "We visit your site and study water source, depth, land & energy needs.",
+      "Understand your requirement & suggest the best solution."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Site visit representation with water body and sun */}
-        <div className="w-28 h-20 bg-sky-50 border border-sky-200 rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-start z-10">
-            <Sun className="w-4 h-4 text-amber-500" />
-            <div className="flex gap-1 items-center bg-white/80 backdrop-blur-xs px-1.5 py-0.5 rounded-full border border-sky-100 shadow-xxs">
-              <Users className="w-3 h-3 text-emerald-700" />
-              <span className="text-[7px] font-bold text-gray-600 font-poppins">Assessing</span>
-            </div>
-          </div>
-          {/* Water body */}
-          <div className="w-full h-6 bg-gradient-to-t from-sky-400 to-sky-300/60 rounded-b-lg absolute bottom-0 left-0 flex items-center justify-center">
-            <Droplets className="w-3.5 h-3.5 text-white/80 animate-bounce" />
-          </div>
-        </div>
-        {/* Water source depth indicator */}
-        <div className="absolute bottom-6 left-6 bg-amber-500 text-white font-mono text-[7px] font-black px-1 py-0.5 rounded shadow">
-          DEPTH METER
-        </div>
-        <MapPin className="w-7 h-7 text-rose-600 absolute top-1/3 left-1/2 -translate-x-1/2 drop-shadow-md animate-bounce" />
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/2_pihaea.jpg"
   },
   {
     step: 3,
     title: "DESIGN & SYSTEM RECOMMENDATION",
     bullets: [
-      "We design a customized solar pumping system for your requirement.",
-      "Provide clear system layout, technical details and quotation."
+      "We design a customized solar pumping system for your need.",
+      "Provide clear system layout, technical details & quotation."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px] p-2">
-        <div className="w-full max-w-[140px] bg-white rounded-xl border border-gray-150 shadow-sm p-1.5 flex flex-col gap-1.5 transform group-hover:scale-105 transition-all duration-300">
-          <div className="grid grid-cols-2 gap-1 flex-1 text-center">
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center">
-              <Sun className="w-3.5 h-3.5 text-amber-500 mb-0.5" />
-              <span className="text-[6.5px] font-black leading-none text-gray-700">Solar Panel</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center">
-              <Settings2 className="w-3.5 h-3.5 text-[#1B5E20] mb-0.5" />
-              <span className="text-[6.5px] font-black leading-none text-gray-700">Controller</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center">
-              <Droplets className="w-3.5 h-3.5 text-blue-500 mb-0.5" />
-              <span className="text-[6.5px] font-black leading-none text-gray-700">Pump Cap</span>
-            </div>
-            <div className="bg-[#E8F5E9]/40 rounded p-1 flex flex-col items-center justify-center">
-              <Layers className="w-3.5 h-3.5 text-slate-600 mb-0.5" />
-              <span className="text-[6.5px] font-black leading-none text-gray-700">Structure</span>
-            </div>
-          </div>
-          <div className="h-1.5 w-full bg-gray-150 rounded overflow-hidden">
-            <div className="h-full w-4/5 bg-emerald-600 animate-[pulse_1.5s_infinite]" />
-          </div>
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/3_u1q2dw.jpg"
   },
   {
     step: 4,
     title: "ORDER CONFIRMATION & AGREEMENT",
     bullets: [
       "You confirm the order.",
-      "Finalize project scope, pricing, timeline and terms."
+      "We finalize the scope, price, timeline & terms."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        <div className="w-20 h-24 bg-white border border-gray-200 rounded-xl shadow-md p-2 flex flex-col justify-between transform group-hover:scale-105 transition-all duration-300 relative">
-          {/* Clipboard top latch */}
-          <div className="w-8 h-2 bg-slate-700 rounded-t-sm mx-auto absolute -top-1 left-1/2 -translate-x-1/2" />
-          
-          <div className="flex-1 space-y-2 mt-2">
-            <div className="w-3/4 h-2 bg-[#E8F5E9] rounded" />
-            <div className="w-full h-1.5 bg-gray-100 rounded" />
-            <div className="w-5/6 h-1.5 bg-gray-100 rounded" />
-            <div className="w-2/3 h-1.5 bg-gray-100 rounded" />
-          </div>
-          
-          {/* Handshake representation or badge */}
-          <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-1 flex items-center justify-center gap-1 mt-1">
-            <Handshake className="w-4 h-4 text-[#1B5E20]" />
-            <span className="text-[6.5px] font-black text-emerald-800 font-poppins">AGREEMENT</span>
-          </div>
-        </div>
-        <div className="absolute -top-1 -right-1 bg-amber-500 text-white p-1 rounded-full shadow-md animate-bounce">
-          <CheckCircle2 className="w-4 h-4" />
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/4_ihugmz.jpg"
   },
   {
     step: 5,
     title: "EQUIPMENT SUPPLY",
     bullets: [
-      "Supply high-quality solar panels, pumps, controllers and accessories.",
-      "All materials are quality tested before installation."
+      "We supply high quality solar panels, pumps, controllers & accessories.",
+      "All materials are tested & quality assured."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        <div className="flex gap-2 items-center justify-center transform group-hover:scale-105 transition-all duration-300">
-          {/* Solar Panel mockup */}
-          <div className="w-10 h-16 bg-blue-900 border border-blue-700 rounded p-1 flex flex-col justify-between relative shadow-sm">
-            <div className="grid grid-cols-2 gap-0.5 flex-1 opacity-60">
-              <div className="border border-blue-300" />
-              <div className="border border-blue-300" />
-              <div className="border border-blue-300" />
-              <div className="border border-blue-300" />
-            </div>
-            <span className="text-[5px] font-black text-white text-center leading-none">PANEL</span>
-          </div>
-          {/* Pump Motor mockup */}
-          <div className="w-8 h-12 bg-slate-800 rounded-md relative flex flex-col justify-between items-center py-1 border border-slate-700 shadow-sm">
-            <div className="w-6 h-1.5 bg-emerald-600 rounded-full" />
-            <span className="text-[5px] text-white font-mono leading-none">PUMP</span>
-            <div className="w-4 h-1 bg-slate-600 rounded" />
-          </div>
-          {/* Controller and accessories */}
-          <div className="w-8 h-8 bg-slate-100 rounded border border-slate-300 flex flex-col items-center justify-center p-1 shadow-sm">
-            <Settings2 className="w-3.5 h-3.5 text-[#1B5E20]" />
-            <span className="text-[5px] font-black text-gray-500 uppercase leading-none">MPPT</span>
-          </div>
-        </div>
-        <div className="absolute bottom-2 right-4 bg-green-600 text-white rounded-full p-1 shadow-md">
-          <CheckCircle2 className="w-3.5 h-3.5" />
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553127/5_pqkqzc.jpg"
   },
   {
     step: 6,
     title: "INSTALLATION",
     bullets: [
-      "Install solar panels, mounting structure, pump, controller, piping and accessories.",
-      "Ensure neat, safe and durable installation."
+      "Our skilled team installs solar panels, structure, pump, controller, piping & all accessories.",
+      "Neat, safe & durable installation."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Mounted Solar Panel in agricultural field */}
-        <div className="w-28 h-20 bg-white border border-[#DDEFD9] rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-center">
-            <span className="text-[8px] font-black text-[#1B5E20] uppercase font-poppins">Mounting MMS</span>
-            <Wrench className="w-3.5 h-3.5 text-amber-600" />
-          </div>
-          
-          {/* Angled PV Panel stand */}
-          <div className="relative w-full h-8 flex items-center justify-center">
-            <div className="w-14 h-6 bg-gradient-to-br from-blue-900 to-blue-950 rounded border border-blue-400 rotate-12 flex items-center justify-center relative shadow-md">
-              <span className="text-[6px] font-bold text-white tracking-tighter">SOLAR PANEL</span>
-              {/* Stand */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-gray-400 origin-top transform -rotate-12" />
-            </div>
-          </div>
-          
-          <div className="flex justify-between">
-            <Sprout className="w-3 h-3 text-emerald-600 animate-pulse" />
-            <Sprout className="w-3 h-3 text-emerald-600 animate-pulse" />
-          </div>
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553128/6_uuv7yv.jpg"
   },
   {
     step: 7,
     title: "TESTING & COMMISSIONING",
     bullets: [
-      "Test the complete system for proper performance.",
-      "Verify water flow, pressure, safety and system reliability."
+      "We test the entire system for proper performance.",
+      "Ensure water flow, pressure, safety & system reliability."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        {/* Testing system with flow meter and gauge */}
-        <div className="w-24 h-20 bg-white border border-[#DDEFD9] rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-md transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-center border-b border-gray-100 pb-1">
-            <span className="text-[7px] font-black text-gray-500 uppercase tracking-tighter">COMMISSIONING</span>
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
-          </div>
-          
-          {/* Flow visual */}
-          <div className="flex-1 flex items-center justify-center gap-1 bg-sky-50 rounded my-1.5 p-1">
-            <Droplets className="w-4 h-4 text-blue-500 animate-bounce" />
-            <div className="text-left leading-none">
-              <span className="text-[8px] font-black text-blue-800 block">WATER FLOW</span>
-              <span className="text-[7px] font-bold text-gray-600 block">100% UNIFORM</span>
-            </div>
-          </div>
-          
-          <div className="flex justify-between items-center text-[7px] text-gray-400 font-bold">
-            <span>Pressure: Optimal</span>
-            <span className="text-emerald-700 font-black">Passed ✓</span>
-          </div>
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553129/7_fz6ski.jpg"
   },
   {
     step: 8,
     title: "TRAINING & HANDOVER",
     bullets: [
-      "Explain system operation, maintenance and safety procedures.",
-      "Hand over user manual, warranty documents and project completion."
+      "We explain system operation, maintenance & safety.",
+      "Hand over the system with user manual & warranty."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        <div className="w-24 h-16 bg-[#13541b] border-2 border-amber-900 rounded-lg p-1.5 relative shadow-md flex flex-col justify-center items-center text-center transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex items-center gap-1">
-            <GraduationCap className="w-5 h-5 text-amber-400" />
-            <span className="text-[8px] font-black text-white uppercase font-poppins">User Manual</span>
-          </div>
-          <p className="text-[5.5px] text-emerald-100 font-bold leading-tight mt-1 font-poppins">OPERATION & PREVENTIVE MAINT.</p>
-        </div>
-        
-        {/* Handover certificate badge */}
-        <div className="absolute bottom-2 right-4 bg-white border border-gray-150 rounded-lg px-1.5 py-1 flex items-center gap-1 shadow-md">
-          <FileCheck className="w-3.5 h-3.5 text-emerald-700" />
-          <span className="text-[7.5px] font-black text-gray-700 font-poppins">Handover ✓</span>
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553129/8_jlpu8k.jpg"
   },
   {
     step: 9,
     title: "AFTER SALES SUPPORT",
     bullets: [
-      "Regular follow-up and technical support.",
-      "Fast response for maintenance and service requests."
+      "Regular follow-up & technical support.",
+      "Quick response for any issues or service needs."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        <div className="w-16 h-18 bg-white border border-emerald-150 rounded-2xl flex flex-col items-center justify-center shadow-lg relative transform group-hover:scale-105 transition-all duration-300">
-          <div className="w-10 h-10 bg-[#E8F5E9] rounded-full flex items-center justify-center">
-            <Headset className="w-6 h-6 text-[#1B5E20]" />
-          </div>
-        </div>
-        <div className="absolute top-6 left-6 bg-[#1B5E20] text-white font-extrabold text-[8px] px-2 py-0.5 rounded-full shadow font-poppins">
-          REGULAR FOLLOW-UP
-        </div>
-        <div className="absolute bottom-3 right-6 bg-amber-500 text-white p-1.5 rounded-full shadow-md animate-bounce">
-          <Phone className="w-3.5 h-3.5" />
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553128/9_zhkt0b.jpg"
   },
   {
     step: 10,
     title: "SAVE WATER, SAVE ENERGY, INCREASE PROFIT",
     bullets: [
       "Reliable water supply with zero electricity cost.",
-      "Increase productivity, reduce operating expenses and improve farm income."
+      "Increase productivity & better income."
     ],
-    illustration: (
-      <div className="relative w-full h-full flex items-center justify-center bg-[#E8F5E9]/50 overflow-hidden rounded-t-[19px]">
-        <div className="w-28 h-20 bg-white border border-emerald-100 rounded-xl relative overflow-hidden flex flex-col justify-between p-2 shadow-sm transform group-hover:scale-105 transition-all duration-300">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-1">
-              <Sun className="w-4 h-4 text-amber-500 animate-spin-slow" />
-              <span className="text-[7px] font-black text-amber-600">ZERO COST</span>
-            </div>
-            <div className="flex items-center gap-0.5 bg-green-100 px-1 rounded">
-              <TrendingUp className="w-3 h-3 text-[#1B5E20]" />
-              <span className="text-[7.5px] font-black text-[#1B5E20] font-poppins font-bold">Income +</span>
-            </div>
-          </div>
-          
-          {/* Irrigated farmland representation */}
-          <div className="w-full h-5 bg-gradient-to-t from-emerald-600 to-emerald-500/80 rounded flex items-center justify-around px-1">
-            <Sprout className="w-3.5 h-3.5 text-white animate-bounce" />
-            <Droplets className="w-3 h-3 text-sky-200" />
-            <Sprout className="w-3.5 h-3.5 text-white animate-bounce" />
-          </div>
-        </div>
-        <div className="absolute bottom-2 left-3 bg-amber-500 text-white p-1 rounded-full shadow-md">
-          <Coins className="w-3.5 h-3.5" />
-        </div>
-      </div>
-    )
+    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784553129/10_pccgyn.jpg"
   }
 ];
 
@@ -1768,61 +1374,113 @@ export default function Services() {
                 </div>
 
                 {/* 🔷 Our 10 steps irrigation process */}
-                <div id="how-we-work-irrigation" className="bg-white rounded-[20px] py-16 px-4 sm:px-8 border border-[#DDEFD9] space-y-12">
-                  <div className="text-center max-w-3xl mx-auto space-y-4">
+                <div id="how-we-work-irrigation" className="bg-[#fcfdfc] rounded-3.5xl p-6 sm:p-10 border border-green-100">
+                  <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
                     <span className="text-[#1B5E20] font-extrabold uppercase tracking-[0.2em] text-xs px-3 py-1 bg-[#E8F5E9] rounded-full inline-block font-poppins">
                       Our Working Process
                     </span>
-                    <h2 className="text-3xl sm:text-[40px] font-extrabold font-poppins text-[#1F2937] tracking-tight leading-tight">
-                      How We Work
+                    <h2 className="text-3xl sm:text-[40px] font-extrabold font-poppins text-[#1F2937] tracking-tight leading-tight uppercase">
+                      OUR SIMPLE 10-STEP IRRIGATION PROCESS
                     </h2>
                     <p className="text-[#1F2937]/75 font-medium text-sm sm:text-base leading-relaxed font-sans">
                       From your first inquiry to long-term support, we provide complete irrigation solutions that maximize crop productivity and water efficiency.
                     </p>
                   </div>
 
-                  <motion.div 
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
-                  >
-                    {irrigationSteps.map((step) => (
-                      <motion.div
-                        key={step.step}
-                        variants={cardVariants}
-                        className="group bg-white rounded-[20px] border border-[#DDEFD9] hover:border-[#1B5E20] shadow-sm hover:shadow-xl hover:-translate-y-2.5 transition-all duration-300 flex flex-col h-full overflow-hidden relative"
+                  {/* Row 1 (Steps 1 to 5) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    {irrigationSteps.slice(0, 5).map((step, idx) => (
+                      <div 
+                        key={step.step} 
+                        className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
                       >
-                        {/* Large green circular step number */}
-                        <div className="absolute top-3 left-3 z-20 w-10 h-10 rounded-full bg-[#1B5E20] text-[#E8F5E9] font-poppins font-extrabold flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform duration-300">
-                          {step.step}
-                        </div>
-
-                        {/* Illustration at top with Light Green background */}
-                        <div className="h-44 bg-[#E8F5E9]/50 relative overflow-hidden flex items-center justify-center border-b border-[#DDEFD9]">
-                          {step.illustration}
-                        </div>
-
-                        {/* Card Content */}
-                        <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                          <div className="space-y-3">
-                            <h4 className="text-xs font-bold font-poppins text-[#1F2937] uppercase tracking-wider leading-snug">
+                        <div>
+                          {/* Card Header */}
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                              {step.step}
+                            </div>
+                            <h4 className="font-extrabold text-[#0a2e12] text-xs tracking-wide uppercase leading-tight font-poppins">
                               {step.title}
                             </h4>
-                            <ul className="space-y-2">
-                              {step.bullets.map((bullet, bIdx) => (
-                                <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-gray-600 leading-relaxed font-sans">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#1B5E20] shrink-0 mt-1.5" />
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
                           </div>
+
+                          {/* Illustration Box */}
+                          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0 relative">
+                            {step.illustration}
+                          </div>
+
+                          {/* Bullet Points */}
+                          <ul className="space-y-2 mt-4">
+                            {step.bullets.map((bullet, bIdx) => (
+                              <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-xs leading-relaxed font-sans">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                                <span className="font-medium text-gray-700">{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                      </motion.div>
+
+                        {/* Arrow connector */}
+                        {idx < 4 && (
+                          <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                          </div>
+                        )}
+                      </div>
                     ))}
-                  </motion.div>
+                  </div>
+
+                  {/* Row 2 (Steps 6 to 10) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+                    {irrigationSteps.slice(5, 10).map((step, idx) => (
+                      <div 
+                        key={step.step} 
+                        className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
+                      >
+                        <div>
+                          {/* Card Header */}
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                              {step.step}
+                            </div>
+                            <h4 className="font-extrabold text-[#0a2e12] text-xs tracking-wide uppercase leading-tight font-poppins">
+                              {step.title}
+                            </h4>
+                          </div>
+
+                          {/* Illustration Box */}
+                          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0 relative">
+                            {step.illustration}
+                          </div>
+
+                          {/* Bullet Points */}
+                          <ul className="space-y-2 mt-4">
+                            {step.bullets.map((bullet, bIdx) => (
+                              <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-xs leading-relaxed font-sans">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                                <span className="font-medium text-gray-700">{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Arrow connector */}
+                        {idx < 4 && (
+                          <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                          </div>
+                        )}
+
+                        {/* Connection arrow on left of Step 6 from previous row */}
+                        {idx === 0 && (
+                          <div className="hidden lg:flex absolute top-1/2 -left-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* 🔷 "Authorized Supply Point" text moved to a separate clean section below the grid for better layout as requested (PDF 3 Page 12) */}
@@ -2167,62 +1825,172 @@ export default function Services() {
                      </div>
                    </div>
 
-                  {/* 🔷 Our 10 steps solar pumping process */}
-                  <div className="bg-white rounded-[20px] py-16 px-4 sm:px-8 border border-[#DDEFD9] space-y-12 md:col-span-3">
-                    <div className="text-center max-w-3xl mx-auto space-y-4">
-                      <span className="text-[#1B5E20] font-extrabold uppercase tracking-[0.2em] text-xs px-3 py-1 bg-[#E8F5E9] rounded-full inline-block font-poppins">
-                        Installation Workflow
-                      </span>
-                      <h2 className="text-3xl sm:text-[42px] font-extrabold font-poppins text-[#263238] tracking-tight leading-tight">
-                        Our Solar Pump Installation Process
-                      </h2>
-                      <p className="text-[#263238]/75 font-medium text-sm sm:text-base leading-relaxed font-sans">
-                        From your first inquiry to successful installation and after-sales support, we provide complete solar pumping solutions for sustainable irrigation.
-                      </p>
+                  {/* 🔷 Our 10 steps solar pumping process (Matches the uploaded board exactly) */}
+                  <div className="md:col-span-3 space-y-8">
+                    {/* Header Banner - Replica of Top of Image */}
+                    <div className="bg-white border-2 border-[#a3d9a5] rounded-[32px] p-6 sm:p-8 shadow-xs relative overflow-hidden">
+                      <div className="absolute inset-0 bg-radial-gradient from-emerald-50/20 to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+                        {/* Left Logo Side */}
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src="/logo_new.png" 
+                            alt="Green View Agro Tech" 
+                            className="h-16 sm:h-20 w-auto object-contain select-none pointer-events-none"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+
+                        {/* Center Title Column */}
+                        <div className="flex-1 text-center flex flex-col items-center space-y-3">
+                          <h2 className="text-3xl sm:text-[40px] font-black font-poppins text-[#0F3D1F] tracking-tight uppercase leading-none">
+                            Solar Pumping System
+                          </h2>
+                          
+                          <div className="flex items-center justify-center gap-2 text-green-700 font-extrabold text-xl sm:text-2xl font-poppins tracking-wide">
+                            <span className="text-xl sm:text-2xl">🌿</span>
+                            <span>OUR PROCESS</span>
+                            <span className="text-xl sm:text-2xl">🌿</span>
+                          </div>
+                          
+                          <div className="bg-[#13541b] text-white px-6 py-2 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase shadow-sm">
+                            SMART ENERGY. RELIABLE WATER. BETTER TOMORROW.
+                          </div>
+                        </div>
+
+                        {/* Right Illustration Side */}
+                        <div className="hidden lg:flex items-center gap-4 bg-emerald-50/40 border border-emerald-100 p-3 rounded-2xl">
+                          <div className="relative w-36 h-20 rounded-xl overflow-hidden shadow-xs">
+                            <img 
+                              src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=300"
+                              alt="Solar array" 
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                            <span className="absolute bottom-1.5 left-2 text-[10px] font-black text-white uppercase tracking-wider">Reliable Irrigation</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
+                    {/* 10-Step responsive grid - 5 columns on large screens to match layout exactly */}
                     <motion.div 
                       variants={containerVariants}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, margin: "-50px" }}
-                      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+                      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
                     >
                       {solarSteps.map((step) => (
                         <motion.div
                           key={step.step}
                           variants={cardVariants}
-                          className="group bg-white rounded-[20px] border border-[#D7EAD5] hover:border-[#1B5E20] shadow-sm hover:shadow-xl hover:-translate-y-2.5 transition-all duration-300 flex flex-col h-full overflow-hidden relative"
+                          className="group bg-white rounded-[24px] border-2 border-[#D7EAD5] hover:border-green-600 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden p-5"
                         >
-                          {/* Large green circular step number */}
-                          <div className="absolute top-3 left-3 z-20 w-10 h-10 rounded-full bg-[#1B5E20] text-[#E8F5E9] font-poppins font-extrabold flex items-center justify-center text-sm shadow-md group-hover:scale-110 transition-transform duration-300">
-                            {step.step}
-                          </div>
-
-                          {/* Illustration at top with Light Green background */}
-                          <div className="h-44 bg-[#E8F5E9]/50 relative overflow-hidden flex items-center justify-center border-b border-[#D7EAD5]">
-                            {step.illustration}
-                          </div>
-
-                          {/* Card Content */}
-                          <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                            <div className="space-y-3">
-                              <h4 className="text-xs font-bold font-poppins text-[#263238] uppercase tracking-wider leading-snug">
-                                {step.title}
-                              </h4>
-                              <ul className="space-y-2">
-                                {step.bullets.map((bullet, bIdx) => (
-                                  <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-gray-600 leading-relaxed font-sans">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#1B5E20] shrink-0 mt-1.5" />
-                                    <span>{bullet}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                          {/* Card Header: (Number Badge) Title */}
+                          <div className="flex items-center gap-3 mb-4 shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-[#13541b] text-white font-poppins font-extrabold flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition-transform duration-300">
+                              {step.step}
                             </div>
+                            <h4 className="font-extrabold text-[#0a2e12] text-xs leading-tight tracking-wide uppercase font-poppins flex-1">
+                              {step.title}
+                            </h4>
+                          </div>
+
+                          {/* Image box below header */}
+                          <div className="w-full aspect-[4/3] rounded-[16px] overflow-hidden border border-gray-150 bg-gray-50 mb-4 shrink-0">
+                            <img 
+                              src={step.img} 
+                              alt={step.title} 
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+
+                          {/* Bullet points below image */}
+                          <div className="flex-1 flex flex-col justify-between">
+                            <ul className="space-y-2 px-0.5">
+                              {step.bullets.map((bullet, bIdx) => (
+                                <li key={bIdx} className="flex items-start gap-1.5 text-[11px] font-medium text-gray-700 leading-relaxed font-sans">
+                                  <span className="text-[#13541b] font-black text-sm leading-none shrink-0 mt-0.5">•</span>
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         </motion.div>
                       ))}
                     </motion.div>
+
+                    {/* BENEFITS TO YOU banner */}
+                    <div className="bg-white border-2 border-[#a3d9a5] rounded-[24px] p-6 mt-12 shadow-xs">
+                      <div className="flex flex-col lg:flex-row items-stretch gap-6">
+                        {/* Left Side: Title Block */}
+                        <div className="bg-[#13541b] rounded-2xl p-4 lg:w-48 flex flex-col justify-center items-center text-center text-white shrink-0 shadow-sm relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                          <h3 className="text-xl font-black font-poppins tracking-wider uppercase leading-tight">
+                            Benefits <br /> To You
+                          </h3>
+                        </div>
+
+                        {/* Right Side: 6 Benefits Grid with dashed line separators */}
+                        <div className="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-0 items-center">
+                          {[
+                            { title: "Save Water", desc: "Eco-friendly watering", icon: Droplets, color: "text-blue-500 bg-blue-50" },
+                            { title: "Reduce Energy Cost", desc: "No utility bills", icon: Sprout, color: "text-emerald-600 bg-emerald-50" },
+                            { title: "Clean & Renewable Energy", desc: "Powered by the sun", icon: Sun, color: "text-amber-500 bg-amber-50" },
+                            { title: "Low Maintenance", desc: "Hassle-free operation", icon: Settings2, color: "text-slate-600 bg-slate-100" },
+                            { title: "Higher Productivity", desc: "Better crop yields", icon: TrendingUp, color: "text-green-700 bg-green-50" },
+                            { title: "Long Lasting System", desc: "Durable components", icon: CheckCircle2, color: "text-[#13541b] bg-emerald-50" }
+                          ].map((item, idx) => (
+                            <div 
+                              key={idx} 
+                              className={`flex flex-col items-center text-center p-3 h-full justify-center lg:px-4 ${
+                                idx > 0 ? "lg:border-l lg:border-dashed lg:border-green-200" : ""
+                              }`}
+                            >
+                              <div className={`w-12 h-12 rounded-full flex items-center justify-center ${item.color} mb-2.5 shadow-xxs shrink-0`}>
+                                <item.icon className="w-6 h-6" />
+                              </div>
+                              <h4 className="font-extrabold text-[#0a2e12] text-xs sm:text-[13px] tracking-tight leading-snug font-poppins">
+                                {item.title}
+                              </h4>
+                              <p className="text-[10px] text-gray-500 font-medium mt-0.5 font-sans leading-tight">
+                                {item.desc}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Deep Green Pill Footer with Contact Info */}
+                    <div className="bg-[#13541b] rounded-full mt-6 py-3.5 px-8 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+                      {/* Left/Center side: contact items */}
+                      <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-bold font-mono tracking-wide">
+                        <a href="tel:+919933374107" className="flex items-center gap-2 hover:text-green-300 transition-colors">
+                          <Phone className="w-4 h-4 text-green-400 shrink-0" />
+                          <span>+91 99333 74107</span>
+                        </a>
+                        <div className="hidden md:block h-4 w-px bg-white/20" />
+                        <a href="mailto:info@greenviewagrotech.com" className="flex items-center gap-2 hover:text-green-300 transition-colors">
+                          <Mail className="w-4 h-4 text-green-400 shrink-0" />
+                          <span>info@greenviewagrotech.com</span>
+                        </a>
+                        <div className="hidden md:block h-4 w-px bg-white/20" />
+                        <a href="https://www.greenviewagrotech.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-300 transition-colors">
+                          <Globe className="w-4 h-4 text-green-400 shrink-0" />
+                          <span>www.greenviewagrotech.com</span>
+                        </a>
+                      </div>
+
+                      {/* Right side: brand stamp */}
+                      <div className="flex items-center gap-2 text-xs font-black font-poppins uppercase tracking-wider bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10 select-none">
+                        <span>🌿 Green View Agro Tech</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {/* Option A & Option B subsidy support omitted for now as requested (PDF 3 Page 15) */}
@@ -2233,186 +2001,188 @@ export default function Services() {
         </div>
       </section>
 
-      {/* 7. How It Works (7 Steps Process) (PDF 2 Page 5) - Relocated before FAQ */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#fcfdfc] rounded-3.5xl p-6 sm:p-10 border border-green-100">
-            <h3 className="text-2.5xl font-bold text-gray-950 text-center mb-12 uppercase tracking-wide">
-              Our Simple 7-Step Solar Installation Process
-            </h3>
-            
-            {/* Row 1 (Steps 1 to 4) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { 
-                  step: "1", 
-                  title: "Contact Us", 
-                  bullets: [
-                    "Get in touch with our team via call, WhatsApp or email.",
-                    "We are happy to assist you!"
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/2_peo3ij.jpg" 
-                },
-                { 
-                  step: "2", 
-                  title: "Free Site Visit & Consultation", 
-                  bullets: [
-                    "Our expert will visit your site for free.",
-                    "We assess your roof, discuss your needs & suggest the best solution."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/3_ax001g.jpg" 
-                },
-                { 
-                  step: "3", 
-                  title: "Document Verification", 
-                  bullets: [
-                    "We verify all necessary documents for eligibility.",
-                    "Our team ensures a smooth and hassle-free process."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/4_xaouxb.jpg" 
-                },
-                { 
-                  step: "4", 
-                  title: "Registration", 
-                  bullets: [
-                    "We register your application on the official PM Surya Ghar Portal.",
-                    "You will receive application acknowledgement."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/5_at4fhm.jpg" 
-                }
-              ].map((step, idx) => (
-                <div 
-                  key={idx} 
-                  className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
-                >
-                  <div>
-                    {/* Card Header */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
-                        {step.step}
+      {/* 7. How It Works (7 Steps Process) (PDF 2 Page 5) - Relocated before FAQ (Only for PM Surya Ghar) */}
+      {activeTab === "pmsuryaghar" && (
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#fcfdfc] rounded-3.5xl p-6 sm:p-10 border border-green-100">
+              <h3 className="text-2.5xl font-bold text-gray-950 text-center mb-12 uppercase tracking-wide">
+                Our Simple 7-Step Solar Installation Process
+              </h3>
+              
+              {/* Row 1 (Steps 1 to 4) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  { 
+                    step: "1", 
+                    title: "Contact Us", 
+                    bullets: [
+                      "Get in touch with our team via call, WhatsApp or email.",
+                      "We are happy to assist you!"
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/2_peo3ij.jpg" 
+                  },
+                  { 
+                    step: "2", 
+                    title: "Free Site Visit & Consultation", 
+                    bullets: [
+                      "Our expert will visit your site for free.",
+                      "We assess your roof, discuss your needs & suggest the best solution."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/3_ax001g.jpg" 
+                  },
+                  { 
+                    step: "3", 
+                    title: "Document Verification", 
+                    bullets: [
+                      "We verify all necessary documents for eligibility.",
+                      "Our team ensures a smooth and hassle-free process."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/4_xaouxb.jpg" 
+                  },
+                  { 
+                    step: "4", 
+                    title: "Registration", 
+                    bullets: [
+                      "We register your application on the official PM Surya Ghar Portal.",
+                      "You will receive application acknowledgement."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/5_at4fhm.jpg" 
+                  }
+                ].map((step, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
+                  >
+                    <div>
+                      {/* Card Header */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                          {step.step}
+                        </div>
+                        <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
+                          {step.title}
+                        </h4>
                       </div>
-                      <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
-                        {step.title}
-                      </h4>
-                    </div>
 
-                    {/* Image Box */}
-                    <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
-                      <img 
-                        src={step.img} 
-                        alt={step.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-
-                    {/* Bullet Points */}
-                    <ul className="space-y-2 mt-4">
-                      {step.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
-                          <span className="font-medium text-gray-700">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Arrow connector */}
-                  {idx < 3 && (
-                    <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                      <Play className="w-3.5 h-3.5 fill-current" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Row 2 (Steps 5 to 7) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 lg:max-w-6xl lg:mx-auto">
-              {[
-                { 
-                  step: "5", 
-                  title: "Solar System Installation", 
-                  bullets: [
-                    "Our skilled team installs high-quality solar system at your premises.",
-                    "System testing & commissioning is completed before activation."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/6_bkoopx.jpg" 
-                },
-                { 
-                  step: "6", 
-                  title: "Net Metering Process", 
-                  bullets: [
-                    "We apply for net meter with your electricity distribution company (DISCOM).",
-                    "After approval, the net meter is installed & your system is connected to the grid."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/7_zt1mmq.jpg" 
-                },
-                { 
-                  step: "7", 
-                  title: "Subsidy Processing", 
-                  bullets: [
-                    "Your subsidy is approved by the government as per eligibility.",
-                    "Subsidy amount is transferred directly to your bank account."
-                  ],
-                  img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289651/8_bxfkks.jpg" 
-                }
-              ].map((step, idx) => (
-                <div 
-                  key={idx} 
-                  className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
-                >
-                  <div>
-                    {/* Card Header */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
-                        {step.step}
+                      {/* Image Box */}
+                      <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
+                        <img 
+                          src={step.img} 
+                          alt={step.title} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          referrerPolicy="no-referrer"
+                        />
                       </div>
-                      <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
-                        {step.title}
-                      </h4>
+
+                      {/* Bullet Points */}
+                      <ul className="space-y-2 mt-4">
+                        {step.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                            <span className="font-medium text-gray-700">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Image Box */}
-                    <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
-                      <img 
-                        src={step.img} 
-                        alt={step.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-
-                    {/* Bullet Points */}
-                    <ul className="space-y-2 mt-4">
-                      {step.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
-                          <span className="font-medium text-gray-700">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Arrow connector */}
+                    {idx < 3 && (
+                      <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                      </div>
+                    )}
                   </div>
+                ))}
+              </div>
 
-                  {/* Arrow connector */}
-                  {idx < 2 && (
-                    <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                      <Play className="w-3.5 h-3.5 fill-current" />
-                    </div>
-                  )}
+              {/* Row 2 (Steps 5 to 7) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 lg:max-w-6xl lg:mx-auto">
+                {[
+                  { 
+                    step: "5", 
+                    title: "Solar System Installation", 
+                    bullets: [
+                      "Our skilled team installs high-quality solar system at your premises.",
+                      "System testing & commissioning is completed before activation."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/6_bkoopx.jpg" 
+                  },
+                  { 
+                    step: "6", 
+                    title: "Net Metering Process", 
+                    bullets: [
+                      "We apply for net meter with your electricity distribution company (DISCOM).",
+                      "After approval, the net meter is installed & your system is connected to the grid."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289650/7_zt1mmq.jpg" 
+                  },
+                  { 
+                    step: "7", 
+                    title: "Subsidy Processing", 
+                    bullets: [
+                      "Your subsidy is approved by the government as per eligibility.",
+                      "Subsidy amount is transferred directly to your bank account."
+                    ],
+                    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784289651/8_bxfkks.jpg" 
+                  }
+                ].map((step, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-[28px] border-2 border-[#a3d9a5] p-5 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full relative"
+                  >
+                    <div>
+                      {/* Card Header */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 bg-[#13541b] rounded-full flex items-center justify-center text-white font-black text-sm shrink-0">
+                          {step.step}
+                        </div>
+                        <h4 className="font-extrabold text-[#0a2e12] text-sm tracking-wide uppercase leading-tight">
+                          {step.title}
+                        </h4>
+                      </div>
 
-                  {/* Connection arrow on left of Step 5 from previous row */}
-                  {idx === 0 && (
-                    <div className="hidden lg:flex absolute top-1/2 -left-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
-                      <Play className="w-3.5 h-3.5 fill-current" />
+                      {/* Image Box */}
+                      <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#eaf4eb]/40 border border-green-50/70 shrink-0">
+                        <img 
+                          src={step.img} 
+                          alt={step.title} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+
+                      {/* Bullet Points */}
+                      <ul className="space-y-2 mt-4">
+                        {step.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2 text-gray-700 text-sm leading-relaxed">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#13541b] shrink-0 mt-[7px]" />
+                            <span className="font-medium text-gray-700">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  )}
-                </div>
-              ))}
+
+                    {/* Arrow connector */}
+                    {idx < 2 && (
+                      <div className="hidden lg:flex absolute top-1/2 -right-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                      </div>
+                    )}
+
+                    {/* Connection arrow on left of Step 5 from previous row */}
+                    {idx === 0 && (
+                      <div className="hidden lg:flex absolute top-1/2 -left-[24px] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border-2 border-green-200 rounded-lg shadow-sm text-green-600">
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Interactive FAQ Bank Section */}
       <ServicesFAQ />
