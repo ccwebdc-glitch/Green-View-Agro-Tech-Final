@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Search, ChevronDown, Sparkles, Droplets, Sun, 
@@ -214,12 +215,12 @@ export default function ServicesFAQ() {
                                   Estimate your subsidy with our tool →
                                 </a>
                               )}
-                              <a 
-                                href="/contact"
+                              <Link 
+                                to="/contact"
                                 className="inline-flex items-center gap-1.5 text-xs font-extrabold text-green-800 bg-green-50 border border-green-200/60 px-3.5 py-1.5 rounded-full hover:bg-green-100 transition-colors"
                               >
-                                Need more advice? Contact our experienced team
-                              </a>
+                                Need more advice? Contact our experienced team →
+                              </Link>
                             </div>
                           </div>
                         </motion.div>
@@ -248,6 +249,22 @@ export default function ServicesFAQ() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        {/* Bottom CTA Card directing to Contact Page */}
+        <div className="max-w-4xl mx-auto mt-12 bg-gradient-to-r from-[#0a2e12] via-[#13541b] to-[#1b5e20] rounded-[24px] p-6 sm:p-8 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-green-700/50">
+          <div className="space-y-1 text-center sm:text-left">
+            <h4 className="text-lg sm:text-xl font-extrabold font-poppins">Need More Advice or Custom Solutions?</h4>
+            <p className="text-xs sm:text-sm text-green-100/90 font-medium">
+              Our team of agricultural & solar engineering experts is ready to answer your specific queries.
+            </p>
+          </div>
+          <Link 
+            to="/contact"
+            className="shrink-0 bg-white hover:bg-green-50 text-[#0a2e12] font-extrabold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+          >
+            Contact Our Team Directly →
+          </Link>
         </div>
 
       </div>
