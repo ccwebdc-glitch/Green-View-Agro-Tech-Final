@@ -38,6 +38,7 @@ export default function Footer() {
               <li><Link to="/partners" className="hover:text-green-400 transition-colors">Equipment & Partners</Link></li>
               <li><Link to="/projects" className="hover:text-green-400 transition-colors">Projects Portfolio</Link></li>
               <li><Link to="/contact" className="hover:text-green-400 transition-colors">Contact Operational Team</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-green-400 transition-colors">Privacy & Policy</Link></li>
             </ul>
           </div>
 
@@ -92,7 +93,11 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>© 2026 Green View Agro Tech. All on-ground rights reserved. Authorized Dealer.</p>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="hover:text-green-400 transition-colors">
+              Privacy & Policy
+            </Link>
+            <span className="text-gray-700">•</span>
             <span className="hover:text-gray-400">West Bengal Registration</span>
           </div>
         </div>
