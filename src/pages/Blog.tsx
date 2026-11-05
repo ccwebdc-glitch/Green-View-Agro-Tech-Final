@@ -146,11 +146,38 @@ export default function Blog() {
       else if (trimmed === "GREEN VIEW AGRO TECH") {
         flushList(index);
         elements.push(
-          <div key={`brand-${index}`} className="mt-12 bg-gradient-to-br from-[#184B2A] to-[#256f3f] text-white p-8 rounded-[24px] shadow-lg border border-[#D8E6D5] space-y-4">
-            <span className="text-amber-300 font-extrabold uppercase text-xs tracking-widest block">
-              Direct Assistance from Green View Agro Tech
+          <div key={`brand-${index}`} className="mt-12 bg-gradient-to-br from-[#184B2A] to-[#1e5c33] text-white p-8 rounded-[28px] shadow-xl border border-emerald-500/30 space-y-4 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-2xl pointer-events-none" />
+            <span className="text-[#9FE870] font-black uppercase text-xs tracking-widest block">
+              Green View Agro Tech • Engineering & Subsidy Support
             </span>
-            <h4 className="text-2xl font-bold">Need assistance with your solar or irrigation project?</h4>
+            <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Book a Free Site Survey & Feasibility Assessment
+            </h4>
+            <p className="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              Serving residential rooftops, agricultural farms, polyhouses, and irrigation schemes across all districts of West Bengal.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#9FE870] hover:bg-[#8fd860] text-[#184B2A] font-black text-sm px-6 py-3.5 rounded-full transition-all shadow-md hover:shadow-lg"
+              >
+                <span>Book a Free Site Survey</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="tel:7477716297"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-5 py-3.5 rounded-full border border-white/20 transition-colors"
+              >
+                <span>Call 7477716297</span>
+              </a>
+              <a
+                href="mailto:office@gvat.co.in"
+                className="text-xs text-emerald-200 hover:text-white underline transition-colors"
+              >
+                office@gvat.co.in
+              </a>
+            </div>
           </div>
         );
       }
@@ -159,10 +186,26 @@ export default function Blog() {
         flushList(index);
         
         // Check if the entire paragraph is a brand CTA statement
-        if (trimmed.startsWith("We size every system") || trimmed.startsWith("We're registered vendors") || trimmed.startsWith("Documentation accuracy is") || trimmed.startsWith("Whether you looked") || trimmed.startsWith("Every panel we install") || trimmed.startsWith("We design your drip") || trimmed.startsWith("We'll walk your") || trimmed.startsWith("We help you check") || trimmed.startsWith("We'll calculate your") || trimmed.startsWith("We assess your") || trimmed.startsWith("We handle your") || trimmed.startsWith("We build the complete") || trimmed.startsWith("We sequence every") || trimmed.startsWith("We don't disappear")) {
+        if (
+          trimmed.startsWith("We size every system") || 
+          trimmed.startsWith("We're registered vendors") || 
+          trimmed.startsWith("Documentation accuracy is") || 
+          trimmed.startsWith("Whether you looked") || 
+          trimmed.startsWith("Every panel we install") || 
+          trimmed.startsWith("We design your drip") || 
+          trimmed.startsWith("We'll walk your") || 
+          trimmed.startsWith("We help you check") || 
+          trimmed.startsWith("We'll calculate your") || 
+          trimmed.startsWith("We assess your") || 
+          trimmed.startsWith("We handle your") || 
+          trimmed.startsWith("We build the complete") || 
+          trimmed.startsWith("We sequence every") || 
+          trimmed.startsWith("We don't disappear") ||
+          trimmed.startsWith("We provide certified turnkey")
+        ) {
           elements.push(
-            <div key={`cta-${index}`} className="-mt-4 bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-2xl my-6">
-              <p className="text-amber-900 text-lg font-medium leading-relaxed">{trimmed}</p>
+            <div key={`cta-${index}`} className="my-6 bg-emerald-50 border-l-4 border-[#184B2A] p-5 rounded-r-2xl">
+              <p className="text-[#184B2A] text-base sm:text-lg font-semibold leading-relaxed">{trimmed}</p>
             </div>
           );
         } else {

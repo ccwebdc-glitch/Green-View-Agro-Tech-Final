@@ -1,292 +1,368 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { CheckCircle2, Award, Zap, ShieldAlert, Heart, Activity, Globe, ShieldCheck } from "lucide-react";
+import { 
+  ShieldCheck, Award, CheckCircle2, ArrowRight, Zap, Droplets, 
+  Layers, Wrench, Building2, ExternalLink, Sparkles 
+} from "lucide-react";
 
-const brandPartners = [
+interface Partner {
+  name: string;
+  category: "solar" | "irrigation" | "polyhouse" | "machinery";
+  role: string;
+  description: string;
+  logo: string;
+  certifications: string[];
+  keyProducts: string[];
+}
+
+const partnersList: Partner[] = [
   {
-    name: "Premier Irrigation Adritec Pvt. Ltd",
-    logo: "/PREMIER.png",
-    status: "Authorised Dealer",
-    desc: "We are authorized dealers of Premier Irrigation Adritec, one of India's leading manufacturers of drip irrigation, sprinkler irrigation, and micro irrigation products specifically designed for Indian field conditions.",
-  },
-  {
-    name: "Jain Irrigation Systems Ltd.",
-    logo: "/JAIN_IRRIGATION_SYSTEM_LTD.png",
-    status: "Authorised Dealer",
-    desc: "Jain Irrigation is one of the largest irrigation companies in the world and a household name in Indian agriculture. We supply their full range of drip and sprinkler systems.",
-  },
-  {
-    name: "Netafim",
-    logo: "/netafim.jpeg",
-    status: "Sourced Systems Partner",
-    desc: "Netafim is an Israeli company and the world's pioneer in drip irrigation. Their products set the benchmark for precision water release and extreme durability under pressure.",
-  },
-  {
-    name: "Captain Polyplast Ltd",
-    logo: "/captain_polyplast.jpg",
-    status: "Authorised Dealer",
-    desc: "A highly trusted brand in Indian agriculture, Captain Polyplast is a pioneer in premium quality micro-irrigation systems, polymer pipes, and durable drip line accessories.",
-  },
-  {
-    name: "Greaves Cotton Limited",
-    logo: "/greaves_cotton.png",
-    status: "Authorised Dealer",
-    desc: "One of India's oldest and most prestigious engineering companies, manufacturing robust diesel engines, agricultural water pumps, and heavy tillers.",
-  },
-  {
-    name: "VST Tillers Tractors Ltd",
-    logo: "/vst_tillers_tractors.png",
-    status: "Authorised Partner",
-    desc: "Pioneers in high-efficiency farm machinery, power tillers, and compact tractors designed to streamline ground work for Indian smallholder farmers.",
+    name: "Shakti Pumps",
+    category: "solar",
+    role: "Solar Submersible & Surface Pumps",
+    description: "Pioneering energy-efficient solar pumping systems empanelled under PM-KUSUM with smart motor controllers and remote monitoring.",
+    logo: "/shakti_pumps.webp",
+    certifications: ["MNRE Empanelled", "PM-KUSUM Approved", "ISO 9001:2015", "BEE 5-Star"],
+    keyProducts: ["Solar Submersible Pumps (1HP–10HP)", "Hybrid Solar Controllers", "Surface Monoblock Pumps"],
   },
   {
     name: "C.R.I. Pumps",
+    category: "solar",
+    role: "Heavy-Duty Agricultural Water Pumps",
+    description: "Over 60 years of pumping engineering excellence delivering robust borewell and openwell pumps for rigorous Indian agricultural conditions.",
     logo: "/cri_pumps.gif",
-    status: "Authorised Dealer",
-    desc: "A global leader in water pumping systems. C.R.I. manufactures durable, energy-efficient agricultural motors, borewell submersibles, and solar solutions.",
+    certifications: ["BIS Standard", "BEE 5-Star Energy Rated", "MNRE Approved"],
+    keyProducts: ["Submersible Borewell Pumps", "Centrifugal Monobloc Pumps", "Solar VFD Drives"],
   },
   {
-    name: "Shakti Pumps",
-    logo: "/shakti_pumps.webp",
-    status: "Authorised Solar Partner",
-    desc: "Shakti Pumps is an international leader in solar pump manufacturing, producing highly efficient stainless steel solar submersibles and smart controllers.",
+    name: "Netafim",
+    category: "irrigation",
+    role: "Pioneers of Drip & Micro Irrigation",
+    description: "The global leader in precision irrigation solutions, providing pressure-compensating drippers, fertigation equipment, and automated valves.",
+    logo: "/netafim.jpeg",
+    certifications: ["Global ISO Standard", "PMKSY Approved", "BIS IS 13488"],
+    keyProducts: ["UniRam & DripNet Dripline", "Screen & Disc Filters", "Air Release Valves"],
   },
   {
-    name: "Lubi Pumps",
-    logo: "/lubi.png",
-    status: "Authorised Dealer",
-    desc: "An engineering giant with over 50 years of experience, supplying trusted submersible, surface, and solar water pumps for various field sizes.",
+    name: "Premier Irrigation Adritec",
+    category: "irrigation",
+    role: "Large-Scale Agricultural & Landscape Irrigation",
+    description: "India's premier manufacturer of drip, sprinkler, and micro-sprinkler networks engineered to save up to 60% water while maximizing crop yield.",
+    logo: "/PREMIER.png",
+    certifications: ["PMKSY Subsidy Compliant", "BIS IS 12786", "ISO 9001"],
+    keyProducts: ["Micro Sprinklers & Foggers", "HDPE Quick-Coupled Pipes", "Hydrocyclone Sand Separators"],
+  },
+  {
+    name: "Captain Polyplast",
+    category: "irrigation",
+    role: "High-Grade Polymer Pipes & Drip Systems",
+    description: "Renowned manufacturer of high-tensile HDPE pipes, PVC conduits, and micro-irrigation hardware designed for long-term field durability.",
+    logo: "/captain_polyplast.jpg",
+    certifications: ["BIS IS 4984 Certified", "Govt. Subsidy Empanelled"],
+    keyProducts: ["HDPE Sprinkler Pipes", "Inline Drip Laterals", "Venturi Injectors"],
+  },
+  {
+    name: "Sova Solar",
+    category: "solar",
+    role: "Tier-1 High-Efficiency Photovoltaic Modules",
+    description: "Leading Indian solar PV module manufacturer featuring TOPCon and Mono-PERC technology with 25-year linear power performance warranty.",
+    logo: "/sova_solar.png",
+    certifications: ["ALMM Listed", "MNRE Registered", "IEC 61215 / 61730", "BIS Certified"],
+    keyProducts: ["Mono-PERC Half-Cut Panels (540W–590W)", "TOPCon Bifacial Modules"],
   },
   {
     name: "Pahal Solar",
-    logo: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784126562/pahal_fdkzrb.jpg",
-    status: "Authorized Solar Dealer",
-    desc: "Pahal Solar manufactures top-tier solar photovoltaic panels using state-of-the-art technology to ensure high efficiency and durability in all weather conditions.",
+    category: "solar",
+    role: "Advanced Rooftop & Agricultural PV Modules",
+    description: "High-reliability solar modules delivering superior low-light generation for PM Surya Ghar and PM-KUSUM installations across Eastern India.",
+    logo: "/pahal_solar.png",
+    certifications: ["ALMM Approved", "PM Surya Ghar Approved", "BIS Certified"],
+    keyProducts: ["DCR Solar Modules (Subsidy-Eligible)", "Mono PERC Modules"],
   },
   {
-    name: "SOVA SOLAR",
-    logo: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784126561/sova_hhmq6a.jpg",
-    status: "Empanelled Solar Partner",
-    desc: "A leading solar PV module manufacturer based in West Bengal, providing high-reliability certified panels for PM Surya Ghar and PM-KUSUM installations.",
-  },
-  {
-    name: "Latteys Industries Ltd",
-    logo: "/latteys.png",
-    status: "Authorised Dealer",
-    desc: "Latteys manufactures highly durable, power-saving water pumps, borewell submersibles, and solar agricultural motors engineered for consistent performance.",
-  },
-  {
-    name: "Agriplast Tech India Pvt. Ltd.",
+    name: "Agriplast Protected Cultivation",
+    category: "polyhouse",
+    role: "Commercial Greenhouse & Polyhouse Solutions",
+    description: "Leading manufacturer of structural greenhouse films, insect nets, shade nets, and climate-control accessories engineered for extreme weather.",
     logo: "/agriplast.jpg",
-    status: "Premium Sourcing Partner",
-    desc: "Agriplast is a leading name in protected agriculture, supplying superior greenhouse cladding films, multi-span structures, and polyhouse shading materials.",
+    certifications: ["UV Stabilized 200 Micron", "Anti-Drip & Anti-Dust Compliant", "NHB Approved"],
+    keyProducts: ["5-Layer Diffused Greenhouse Film", "Anti-Insect 40/50 Mesh Nets", "Aluminet Thermal Screens"],
   },
   {
-    name: "GreenPro",
+    name: "GreenPro Agri Solutions",
+    category: "polyhouse",
+    role: "Agricultural Geotextiles & Covers",
+    description: "Specialized supplier of agro-textiles, mulching films, crop covers, and greenhouse films tested to resist UV degradation and chemical pesticides.",
     logo: "/GreenPro.png",
-    status: "Sourced Systems Partner",
-    desc: "Specialized in advanced agricultural textiles, providing high-quality weed mats, insect screens, and shade nets to protect crops from severe weather.",
+    certifications: ["ISO 9001", "CE Certified", "Global Gap Aligned"],
+    keyProducts: ["Silver-Black Mulch Film", "UV Stabilized Shade Nets", "Ground Covers / Weed Mats"],
   },
   {
-    name: "RATNAGIRI IMEX",
-    logo: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784126562/RATNAGIRI_IMEX_wcptqd.png",
-    status: "Authorised Partner",
-    desc: "Ratnagiri Imex offers reliable agricultural equipment tailored to meet the evolving needs of modern farming. Its products combine quality engineering with long service life.",
+    name: "Ratnagiri Impex / Agrimate",
+    category: "machinery",
+    role: "Farm Mechanization & Power Equipment",
+    description: "Comprehensive agricultural tools and equipment including heavy-duty power weeders, high-pressure sprayers, and brush cutters.",
+    logo: "/ratnagiri_imex_v2.png",
+    certifications: ["State Agriculture Empanelled", "CE Certified Machinery"],
+    keyProducts: ["Power Sprayers & Foggers", "Rotary Tillers & Weeders", "Earth Augers"],
   },
   {
-    name: "BMI CABLES PVT LTD",
-    logo: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784126561/BMI_CABLES_PVT.LTD_gp9hew.png",
-    status: "Authorised Partner",
-    desc: "BMI Cables delivers high-quality electrical cables designed for secure and efficient power distribution. The brand is trusted for consistent quality and reliability.",
+    name: "VST Tillers Tractors",
+    category: "machinery",
+    role: "Compact Tractors & Power Weeders",
+    description: "India's pioneer in lightweight compact farm machinery designed specifically for horticulture, inter-cultivation, and greenhouse row farming.",
+    logo: "/vst_tillers_tractors.png",
+    certifications: ["Govt. Subsidized Machinery Scheme", "ISO 9001"],
+    keyProducts: ["Power Tillers", "Compact 4WD Mini Tractors", "Rotavators"],
   },
   {
-    name: "KISHAN KRAFT",
-    logo: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784126562/kisankraft_zpufbe.jpg",
-    status: "Authorised Partner",
-    desc: "Kishan Kraft is known for versatile agricultural machinery that improves operational efficiency. The brand focuses on durability and ease of use.",
-  }
-];
-
-const hardwareProducts = [
-  {
-    name: "Premium Drip Lateral Pipes",
-    brand: "Premier Adritec / Jain / Captain",
-    desc: "UV-stabilized linear low-density polyethylene tubes with built-in path drippers to resist clogging.",
-    spec: "Sizes: 12mm, 16mm, 20mm | Spacing: 30cm to 60cm",
-    category: "Irrigation Components",
-    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125909/04_xyh7fu.png"
+    name: "Greaves Cotton",
+    category: "machinery",
+    role: "Heavy-Duty Diesel Engines & Pumpsets",
+    description: "Reliable power solutions and multi-utility diesel pump sets trusted for generations across rural India for uncompromised irrigation delivery.",
+    logo: "/greaves_cotton.png",
+    certifications: ["BS-IV / Emission Compliant", "ISI Certified"],
+    keyProducts: ["Agricultural Diesel Engines", "Portable Water Pumpsets"],
   },
   {
-    name: "Overhead Micro Sprinkler Heads",
-    brand: "Jain Irrigation / Premier",
-    desc: "Rotating nozzles designed to emulate uniform local rain. Best for orchard crop coverage.",
-    spec: "Flow: 35 to 105 LPH | Radius: 1.5m to 4.5m",
-    category: "Irrigation Components",
-    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125909/05_t5gjry.png"
+    name: "KisanKraft",
+    category: "machinery",
+    role: "Horticulture Equipment & Farm Implements",
+    description: "Affordable, high-durability farm implements, battery knapsack sprayers, chain saws, and post-hole diggers for progressive growers.",
+    logo: "/kisankraft.jpeg",
+    certifications: ["Sub-Mission on Agricultural Mechanization (SMAM) Listed"],
+    keyProducts: ["Battery Sprayers", "Brush Cutters", "Mini Weeders"],
   },
   {
-    name: "High-Pressure Fogger Array",
-    brand: "Netafim",
-    desc: "Anti-drip misting nozzles that suspend ultra-fine micro drops to lower greenhouse temperatures instantly.",
-    spec: "Nozzle: 4-Way Cross | Operating pressure: 4.0 Bar",
-    category: "Polyhouse Controls",
-    img: " https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125909/06_p11vvl.png "
+    name: "BMI Cables Pvt. Ltd.",
+    category: "solar",
+    role: "Solar DC Cables & Submersible Flat Cables",
+    description: "Specialized high-conductivity copper cables with UV-resistant XLPO insulation designed to withstand 25+ years of intense outdoor exposure.",
+    logo: "/bmi_cables.png",
+    certifications: ["TUV Rheinland Certified", "EN 50618 Compliant", "IS 694"],
+    keyProducts: ["4 sq mm / 6 sq mm Solar DC Cables", "Submersible Flat 3-Core Cables"],
   },
-  {
-    name: "UV-Stabilized Polyethylene Cladding Film",
-    brand: "Agriplast / GreenPro",
-    desc: "200 Micron thick diffused polymer plastic film to resist scorching West Bengal afternoon sun and block pests.",
-    spec: "Width: Up to 12m | Warranty: 5-Year UV Stability",
-    category: "Polyhouse Controls",
-    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125909/07_wojeu9.png"
-  },
-  {
-    name: "Solar Submersible Bore Pump Set",
-    brand: "Shakti / CRI / Lubi / Latteys",
-    desc: "High-performance brushless DC submersible pumps rated to push deep water feeds smoothly up.",
-    spec: "Rating: 2 HP to 7.5 HP | Flow rate: High Discharge",
-    category: "Solar Pump Hardware",
-    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125909/08_ncvngp.png"
-  },
-  {
-    name: "Galvanized module stands (MMS)",
-    brand: "Green View (In-House Fabrication)",
-    desc: "Heavy structural panels fabricated by our own technicians to withstand severe cyclonic wind loads.",
-    spec: "GI specs: Hot-dip Galvanized | Rated winds: 150 km/h",
-    category: "Solar Pump Hardware",
-    img: "https://res.cloudinary.com/dr6qj9aff/image/upload/v1784125908/09_merlxs.png"
-  }
 ];
 
 export default function Partners() {
+  const [activeTab, setActiveTab] = useState<"all" | "solar" | "irrigation" | "polyhouse" | "machinery">("all");
+
+  const filteredPartners = partnersList.filter(
+    (p) => activeTab === "all" || p.category === activeTab
+  );
+
   return (
-    <div className="bg-[#fafbfa]">
-      {/* Page Header */}
-      <section className="bg-gradient-to-r from-green-950 to-emerald-900 text-white pt-32 pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none">
-          <img 
-            src="https://res.cloudinary.com/dj3n3w4ka/image/upload/v1780322531/ChatGPT_Image_Jun_1_2026_07_30_30_PM_iurca8.png" 
-            alt="Agri warehouse background" 
-            className="w-full h-full object-cover" 
-          />
-        </div>
+    <div className="min-h-screen bg-gray-50 pt-24 pb-20">
+      {/* Hero Header */}
+      <section className="relative bg-gradient-to-br from-emerald-950 via-green-900 to-teal-950 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.15),transparent)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 tracking-tight leading-none text-white text-shadow">
-            We Work With Names You Can Trust.
+          <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-6">
+            <Award className="w-4 h-4 text-emerald-400" />
+            Authorized Alliances & Sourcing Partners
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+            World-Class Technology Brands Powering Every Installation
           </h1>
-          <p className="text-lg text-emerald-100 max-w-2xl mx-auto mt-4 font-semibold">
-            We don't compromise on where we source our equipment. Every brand we work with has been chosen because it performs in real field conditions — not just on paper. 
+          <p className="mt-6 text-lg sm:text-xl text-emerald-100/90 max-w-3xl mx-auto leading-relaxed">
+            Green View Agro Tech partners exclusively with certified, MNRE-approved, 
+            and BIS-compliant OEMs to guarantee maximum efficiency, authentic government subsidies, 
+            and up to 25 years of field durability.
           </p>
-        </div>
-      </section>
 
-      {/* 🔷 BRANDS / PARTNERS  */}
-      <section className="py-24 bg-white border-b border-gray-150">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4.5xl font-black text-gray-900 tracking-tight leading-tight"> Here's who we partner with: </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {brandPartners.map((brand, idx) => (
-              <motion.div
-                key={brand.name}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="bg-gray-50 rounded-3xl p-8 border border-gray-150 flex flex-col justify-between hover:border-green-300 hover:shadow-md transition-all"
-              >
-                <div className="space-y-4">
-                  <div className="flex justify-between items-start gap-4">
-                    <div className="flex items-center gap-3">
-                      {brand.logo ? (
-                        <img 
-                          src={brand.logo} 
-                          alt={`${brand.name} Logo`} 
-                          className="h-10 w-auto object-contain bg-white p-1 rounded-lg border border-gray-100 shadow-sm" 
-                          referrerPolicy="no-referrer" 
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = 'none';
-                          }}
-                        />
-                      ) : null}
-                      <span className="text-xl font-extrabold text-gray-950 block tracking-tight leading-none">{brand.name}</span>
-                    </div>
-                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shrink-0">
-                      {brand.status}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed">{brand.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-emerald-200">
+            <span className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              100% Genuine Manufacturer Warranties
+            </span>
+            <span className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              PM Surya Ghar & PM-KUSUM Empanelled
+            </span>
+            <span className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/15">
+              <Building2 className="w-4 h-4 text-emerald-400" />
+              Authorized Dealership & Service Support
+            </span>
           </div>
         </div>
       </section>
 
-      {/* 🔷 HARDWARE EQUIPMENT SHOWCASE */}
-      <section className="py-24 bg-[#fafbfa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs bg-emerald-50 px-4 py-1.5 rounded-full inline-block mb-4">Core Components</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight leading-tight">Materials & Inputs We Supply</h2>
-            <p className="text-gray-650 mt-2 text-base sm:text-lg">The heavy-duty, field-rugged parts that assemble your farms securely.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hardwareProducts.map((p, idx) => (
-              <div 
-                key={p.name} 
-                className="bg-white border border-gray-150 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition-all hover:shadow-md"
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        {/* Category Filter Pills */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 sm:p-4 mb-12 flex flex-wrap gap-2 justify-center">
+          {[
+            { key: "all", label: "All Sourcing Brands", count: partnersList.length },
+            { key: "solar", label: "Solar & Energy (PM Surya Ghar & KUSUM)", icon: Zap },
+            { key: "irrigation", label: "Drip & Precision Irrigation", icon: Droplets },
+            { key: "polyhouse", label: "Greenhouse & Agro Films", icon: Layers },
+            { key: "machinery", label: "Mechanization & Equipment", icon: Wrench },
+          ].map((tab) => {
+            const active = activeTab === tab.key;
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key as any)}
+                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 ${
+                  active
+                    ? "bg-emerald-700 text-white shadow-md shadow-emerald-700/25"
+                    : "bg-gray-50 hover:bg-gray-100 text-gray-700 hover:text-gray-900"
+                }`}
               >
-                <div className="space-y-4">
-                  <div className="flex justify-between items-start gap-2">
-                    <span className="text-[10px] uppercase font-bold text-gray-400 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-150">{p.category}</span>
-                    <span className="text-[10px] uppercase font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-md">{p.brand}</span>
-                  </div>
-                  {p.img && (
-                    <div className="w-full h-48 overflow-hidden rounded-2xl bg-gray-50 border border-gray-100 mt-2">
-                      <img 
-                        src={p.img} 
-                        alt={p.name} 
-                        className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-300" 
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-                  )}
-                  <h4 className="text-lg font-bold text-gray-950 tracking-tight leading-tight">{p.name}</h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{p.desc}</p>
+                {Icon && <Icon className="w-4 h-4" />}
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Partners Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPartners.map((partner, index) => (
+            <motion.div
+              key={partner.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.04 }}
+              className="bg-white rounded-3xl border border-gray-200/80 hover:border-emerald-300 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
+            >
+              <div>
+                {/* Logo Banner */}
+                <div className="h-32 bg-gray-50/80 p-6 flex items-center justify-center border-b border-gray-100 relative group-hover:bg-emerald-50/40 transition-colors">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-20 max-w-[200px] object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      // Fallback if image fails
+                      (e.target as HTMLElement).style.display = "none";
+                      const parent = (e.target as HTMLElement).parentElement;
+                      if (parent && !parent.querySelector(".fallback-text")) {
+                        const span = document.createElement("span");
+                        span.className = "fallback-text font-black text-xl text-gray-700 tracking-tight";
+                        span.textContent = partner.name;
+                        parent.appendChild(span);
+                      }
+                    }}
+                  />
+                  <span className="absolute top-3 right-3 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-white border border-gray-200 text-gray-600 shadow-xs">
+                    {partner.category}
+                  </span>
                 </div>
-                
-                <div className="border-t border-gray-100 pt-4 mt-6">
-                  <span className="text-[11px] font-mono text-gray-500 block">Technical Specification:</span>
-                  <span className="text-sm font-semibold text-gray-800 block mt-1">{p.spec}</span>
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <div className="mb-2">
+                    <h3 className="text-xl font-bold text-gray-950 group-hover:text-emerald-700 transition-colors">
+                      {partner.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-emerald-700 mt-0.5">
+                      {partner.role}
+                    </p>
+                  </div>
+
+                  <p className="text-sm text-gray-600 leading-relaxed mt-3 mb-5">
+                    {partner.description}
+                  </p>
+
+                  {/* Certifications */}
+                  <div className="mb-4">
+                    <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+                      Standards & Approvals
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {partner.certifications.map((cert) => (
+                        <span
+                          key={cert}
+                          className="text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-100 px-2 py-0.5 rounded-md"
+                        >
+                          {cert}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Key Equipment Sourced */}
+                  <div>
+                    <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+                      Key Systems Supplied
+                    </h4>
+                    <ul className="space-y-1 text-xs text-gray-700">
+                      {partner.keyProducts.map((prod) => (
+                        <li key={prod} className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          <span>{prod}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Sourcing Promise info box */}
-          <div className="bg-gradient-to-r from-green-900 to-emerald-950 p-8 sm:p-12 rounded-3.5xl text-white mt-16 shadow-xl relative overflow-hidden">
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              <div className="lg:col-span-2 space-y-4">
-                <h4 className="text-2xl sm:text-3.5xl font-extrabold tracking-tight">Our Quality Sourcing Promise</h4>
-                <p className="text-green-100 text-sm sm:text-base leading-relaxed">
-                  We also source specialized sub-components and fittings from other reputed Indian manufacturers as per project requirements — always prioritizing heavy walls, proper chemical testing, and long-term performance under local sun.
+              {/* Bottom Card Action */}
+              <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-emerald-700 group-hover:bg-emerald-50/50 transition-colors">
+                <span>Integrated by Green View</span>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-1 hover:text-emerald-800 hover:underline"
+                >
+                  <span>Inquire Sourcing</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Quality Assurance Pledge */}
+        <div className="mt-16 bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                <Sparkles className="w-3.5 h-3.5" />
+                Zero Compromise Quality Charter
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight mb-4">
+                Why Equipment Origin & OEM Certification Matter
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                Under PM Surya Ghar and PM-KUSUM, the central and state governments mandate Domestic Content Requirement (DCR) 
+                and ALMM/BIS verified materials. Unregistered or grey-market components will disqualify your subsidy application 
+                and leave you without manufacturer warranty recourse.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>100% Bill of Material Traceability:</strong> Every panel, inverter, dripline, and pump comes with serialized factory test certificates.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Direct DISCOM Inspection Pass:</strong> Verified documentation expedites WBSEDCL and CESC net-meter inspections without rejections.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-emerald-900 text-white rounded-2xl p-6 text-center flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-lg font-bold mb-2">Want to Partner with Us?</h3>
+                <p className="text-emerald-100/80 text-xs leading-relaxed mb-6">
+                  Are you an agricultural OEM, solar manufacturer, or precision farming equipment innovator? We welcome supplier partnerships.
                 </p>
               </div>
-              <div className="text-center lg:text-right shrink-0">
-                <a 
-                  href="/contact"
-                  className="bg-white text-green-950 font-extrabold py-4 px-8 rounded-2xl text-sm sm:text-base hover:bg-green-50 transition-colors inline-block"
-                >
-                  Contact Sourcing Team
-                </a>
-              </div>
+              <Link
+                to="/contact?role=vendor"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-extrabold text-xs px-5 py-3 rounded-xl transition-colors shadow-md"
+              >
+                <span>Vendor Partnership Desk</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
-      </section>
+
+      </div>
     </div>
   );
 }
