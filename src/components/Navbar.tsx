@@ -32,14 +32,17 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
               <motion.img 
                 whileHover={{ scale: 1.02 }}
-                src="/logo_new.png" 
-                alt="Green View Agro Tech" 
-                className="h-14 sm:h-16 w-auto object-contain transition-transform"
+                src="/logo.jpg" 
+                alt="Green View Agrotech" 
+                className="h-11 sm:h-14 w-auto object-contain transition-transform"
                 referrerPolicy="no-referrer"
               />
+              <span className="text-base sm:text-xl font-bold text-gray-800 tracking-tight group-hover:text-green-700 transition-colors pl-[-9px] ml-[-6px] mr-[-7px] mt-[14px]">
+                Green View Agrotech
+              </span>
             </Link>
 
             {/* Desktop Nav */}
